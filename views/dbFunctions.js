@@ -39,6 +39,7 @@ function doPost(){
     document.getElementById("artifact_type").value = "";
     document.getElementById("imgLink").value = "";
 };
+
 function doGet(){
     var url = "/api/catalogs";
     var xhr = new XMLHttpRequest();
@@ -60,7 +61,7 @@ function doGet(){
 function deleteAll() {
     var url = "/api/catalogs";
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
+    xhr.open("DELETE", url);
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
 
