@@ -18,6 +18,7 @@ const Sequelize = require("sequelize");
 //     }
 // });
 
+// ADDED TO ALLOW SERIALIZE TO FUNCTION WITH HEROKU DEPLOYMENT -AS 11/15/21
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     protocol: 'postgres',
