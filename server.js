@@ -7,8 +7,6 @@ const app = express();
 
 //cross origin enabled
 var corsOptions = {origin: "http://localhost:8081"};
-
-//initialize app w/ middleware & any options
 app.use(cors(corsOptions));
 
 //parse JSON
@@ -16,6 +14,9 @@ app.use(bodyParser.json());
 
 //parse urlencoded
 app.use(bodyParser.urlencoded({extended:true}));
+
+//load base page
+app.use(express.static(__dirname + '/views'));
 
 //sync the DB
 const db = require("./app/models");
@@ -26,12 +27,11 @@ const db = require("./app/models");
 db.sequelize.sync();
 
 //test root route
-app.get("/", (req,res) => {
-    res.json({message: "You made it, dumbass"});
-});
+// app.get("/", (req,res) => {
+//     res.json({message: "You made it, dumbass"});
+// });
 
-
-//require routes
+//require routes for CRUD
 require('./app/routes/catalog.routes.js')(app);
 
 //port & listen

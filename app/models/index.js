@@ -22,5 +22,3 @@ db.sequelize = sequelize;
 db.catalogs = require("./catalog.model.js")(sequelize, Sequelize);
 
 module.exports = db;
-
-//change to test pivotalTracker

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uStuffIt</title>
+</head>
+<body>
+    <h3>Welcome to uStuffIt!</h3>
+
+    <!--TEST SCRIPT FOR POSTING TO DB-->
+    <script>
+        function doPost(){
+        var url = "/api/catalogs";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+        }};
+
+        var data = `{
+            "thing_label": "typewriter",
+            "thing_status": "in storage",
+            "thing_condition": "new",
+            "person_role": "owner",
+            "person_contactInfo": "123-333-3333",
+            "place_storedIn": "garage",
+            "category_label": "antiques",
+            "hist_desc": "I got this at a yard sale - good condition.",
+            "hist_date": "10/12/2021",
+            "artifact_type": "typewriter",
+            "imgLink": "www.google.com"
+        }`;
+
+        xhr.send(data);
+    };
+    </script>
+    
+    <button id='createButton' onclick="doPost()">CREATE AN ITEM</button>
+</body>
+</html>

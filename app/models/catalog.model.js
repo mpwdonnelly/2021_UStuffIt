@@ -37,5 +37,3 @@ module.exports = (sequelize, Sequelize) => {
   
     return Catalog;
   };
-
-  //change to test pivotalTracker

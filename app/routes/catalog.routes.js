@@ -26,5 +26,3 @@ module.exports = app => {
     app.use('/api/catalogs', router);
 };
 
-//change to test pivotalTracker
-
