@@ -2,8 +2,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-// const path = require("path");
-// const { Pool } = require("pg");
+const path = require("path");
+const { Pool } = require("pg");
 
 // const pool = new Pool({
 //     connectionString: process.env.DATABASE_URL,
