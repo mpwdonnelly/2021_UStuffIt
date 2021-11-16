@@ -37,3 +37,5 @@ module.exports = (sequelize, Sequelize) => {
   
     return Catalog;
   };
+
+  //comment
