@@ -28,7 +28,7 @@ db.sequelize.sync();
 
 //test root route
 // app.get("/", (req,res) => {
-//     res.json({message: "You made it, dumbass"});
+//     res.json({message: "You made it!"});
 // });
 
 //require routes for CRUD
@@ -37,7 +37,5 @@ require('./app/routes/catalog.routes.js')(app);
 //port & listen
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-    console.log(`yeah it worked AW HELL YEAH also it's running on port# ${PORT}.`);
+    console.log(`running on port# ${PORT}.`);
 });
-
-//

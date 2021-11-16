@@ -139,5 +139,3 @@ exports.delete = (req, res) => {
         });
       });
   };
-
-  //comment

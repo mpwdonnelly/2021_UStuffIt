@@ -18,13 +18,18 @@
   "author": "Alex Snyder",
   "license": "ISC",
   "dependencies": {
+    "@heroku/buildpack-registry": "^1.0.1",
+    "async-file": "^2.0.2",
     "body-parser": "^1.19.0",
     "cjs": "^0.0.11",
+    "cli-ux": "^5.6.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "got": "^11.8.2",
     "heroku": "^7.59.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
+    "phoenix": "^1.6.2",
     "sequelize": "^6.9.0"
   }
 }
