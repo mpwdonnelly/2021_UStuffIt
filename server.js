@@ -2,15 +2,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require("path");
-const { Pool } = require("pg");
-
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
 
 const app = express();
 
@@ -44,7 +35,7 @@ db.sequelize.sync();
 require('./app/routes/catalog.routes.js')(app);
 
 //port & listen
-const PORT = process.env.PORT || 5000;
-app.listen(process.env.PORT, () => {
+const PORT = process.env.PORT || 5432;
+app.listen(PORT, () => {
     console.log(`running on port# ${PORT}.`);
 });

@@ -5,6 +5,7 @@ const Op = db.sequelize.Op;
 
 //Create and save a catalog item
 exports.create = (req,res) => {
+    
     //validate the request
     if (!req.body.thing_label) {
         res.status(400).send({
