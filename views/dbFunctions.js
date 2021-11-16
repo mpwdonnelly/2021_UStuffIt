@@ -76,3 +76,5 @@ function clearAll(){
     document.getElementById("artifact_type").value = "";
     document.getElementById("imgLink").value = "";
 }
+
+//toDo: add remainder of buttons for remaining routing functions
