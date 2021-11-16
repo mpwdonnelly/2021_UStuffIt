@@ -44,3 +44,21 @@ function doGet(){
 
     xhr.send(data);
 };
+
+function deleteAll() {
+    var url = "/api/catalogs";
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+        console.log(xhr.status);
+        console.log(xhr.responseText);
+    }};
+
+    //var data = `{}`;
+
+    xhr.send();
+}
