@@ -1,6 +1,7 @@
 //***************************************************************/
 // DISABLED TO ALLOW FOR HEROKU DEPLOYMENT WITH SEQUELIZE.
-// DO NOT RE-ENABLE, SAVING FOR LEGACY. -AS 11/15/21
+// DO NOT RE-ENABLE, SAVING FOR LEGACY. ONLY RE-ENABLE FOR LOCAL
+// NODE SERVER.JS WORK -AS 11/15/21
 //***************************************************************/
 // module.exports = {
 //     HOST: "localhost",
