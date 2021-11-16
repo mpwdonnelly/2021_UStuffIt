@@ -5,43 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>uStuffIt</title>
+    <script type="text/javascript" src="dbFunctions.js"></script>
 </head>
 <body>
     <h3>Welcome to uStuffIt!</h3>
 
-    <!--TEST SCRIPT FOR POSTING TO DB-->
-    <script>
-        function doPost(){
-        var url = "/api/catalogs";
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", url);
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("Content-Type", "application/json");
+    <input type="text" id="thing_label">Item Label<br>
+    <input type="text" id="thing_status">Item Status<br>
+    <input type="text" id="thing_condition">Item Condition<br>
+    <input type="text" id="person_role">Person's Role<br>
+    <input type="text" id="person_contactInfo">Contact Info<br>
+    <input type="text" id="place_storedIn">Stored In<br>
+    <input type="text" id="category_label">Category Label<br>
+    <input type="text" id="hist_desc">Description<br>
+    <input type="text" id="hist_date">Date of Purchase<br>
+    <input type="text" id="artifact_type">Artifact Type<br>
+    <input type="text" id="imgLink">Link to Image<br>
 
-        xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            console.log(xhr.status);
-            console.log(xhr.responseText);
-        }};
-
-        var data = `{
-            "thing_label": "typewriter",
-            "thing_status": "in storage",
-            "thing_condition": "new",
-            "person_role": "owner",
-            "person_contactInfo": "123-333-3333",
-            "place_storedIn": "garage",
-            "category_label": "antiques",
-            "hist_desc": "I got this at a yard sale - good condition.",
-            "hist_date": "10/12/2021",
-            "artifact_type": "typewriter",
-            "imgLink": "www.google.com"
-        }`;
-
-        xhr.send(data);
-    };
-    </script> <!--END TEST SCRIPT-->
 
     <button id='createButton' onclick="doPost()">CREATE AN ITEM!</button>
+    <button id='getAllButton' onclick="doGet()">GET EVERYTHING IN DB</button>
+    <button id='test' onclick="testFields()">TEST</button>
+
+    
 </body>
 </html>
