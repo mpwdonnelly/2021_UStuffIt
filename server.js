@@ -27,9 +27,9 @@ const db = require("./app/models");
 db.sequelize.sync();
 
 //test root route
-// app.get("/", (req,res) => {
-//     res.json({message: "You made it!"});
-// });
+app.get("/", (req,res) => {
+    res.render('views/index');
+});
 
 //require routes for CRUD
 require('./app/routes/catalog.routes.js')(app);
