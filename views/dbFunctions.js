@@ -26,6 +26,18 @@ function doPost(){
     }`;
 
     xhr.send(data);
+
+    document.getElementById("thing_label").value = "";
+    document.getElementById("thing_status").value = "";
+    document.getElementById("thing_condition").value = "";
+    document.getElementById("person_role").value = "";
+    document.getElementById("person_contactInfo").value = "";
+    document.getElementById("place_storedIn").value = "";
+    document.getElementById("category_label").value = "";
+    document.getElementById("hist_desc").value = "";
+    document.getElementById("hist_date").value = "";
+    document.getElementById("artifact_type").value = "";
+    document.getElementById("imgLink").value = "";
 };
 function doGet(){
     var url = "/api/catalogs";
