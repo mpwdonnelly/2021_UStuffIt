@@ -13,7 +13,8 @@ Capstone Project
   items in their collection of stuff, whichever portion of it they care to record and track. For our stack we have
   incorporated Vue.js for the front end, with Eclipse/Node running interactions with a Postgres DB on the backend.
   The UI will dynamically reconfigure depending on the device the user is accessing their records on.</p>
-<h4>How to Use It</h4>
+<h4>Project Installation</h4>
 <p>Once the alpha version of the app is completed, we plan to release this to the public for self-hosting. This means
   that anyone who wishes to use this can do so with complete confidence in the security of their information, because
   it will never be hosted in a DB that is controlled by a third party.</p>
+<p>
