@@ -1,6 +1,10 @@
 const dbConfig = require("../config/db.config");
 
 const Sequelize = require("sequelize");
+//***************************************************************/
+// DISABLED 11/15 TO ALLOW FOR HEROKU DEPLOYMENT WITH SERIALIZE.
+// DO NOT RE-ENABLE, SAVING FOR LEGACY. -AS
+//***************************************************************/
 // const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 //     host: dbConfig.HOST,
 //     dialect: dbConfig.dialect,

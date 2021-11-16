@@ -1,3 +1,7 @@
+//***************************************************************/
+// DISABLED TO ALLOW FOR HEROKU DEPLOYMENT WITH SERIALIZE.
+// DO NOT RE-ENABLE, SAVING FOR LEGACY. -AS 11/15/21
+//***************************************************************/
 // module.exports = {
 //     HOST: "localhost",
 //     USER: "postgres",
