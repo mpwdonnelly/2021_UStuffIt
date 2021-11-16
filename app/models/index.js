@@ -1,9 +1,10 @@
 const dbConfig = require("../config/db.config");
-
 const Sequelize = require("sequelize");
+
 //***************************************************************/
-// DISABLED 11/15 TO ALLOW FOR HEROKU DEPLOYMENT WITH SERIALIZE.
-// DO NOT RE-ENABLE, SAVING FOR LEGACY. -AS
+// DISABLED TO ALLOW FOR HEROKU DEPLOYMENT WITH SEQUELIZE.
+// DO NOT RE-ENABLE, SAVING FOR LEGACY. ONLY RE-ENABLE FOR LOCAL
+// NODE SERVER.JS WORK, IN WHICH CASE DISABLE LINES 23-32. -AS 11/15/21
 //***************************************************************/
 // const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 //     host: dbConfig.HOST,
@@ -18,7 +19,7 @@ const Sequelize = require("sequelize");
 //     }
 // });
 
-// ADDED TO ALLOW SERIALIZE TO FUNCTION WITH HEROKU DEPLOYMENT -AS 11/15/21
+// ADDED TO ALLOW SEQUELIZE TO FUNCTION WITH HEROKU DEPLOYMENT -AS 11/15/21
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     protocol: 'postgres',

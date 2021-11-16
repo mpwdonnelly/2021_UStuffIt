@@ -12,17 +12,17 @@ function doPost(){
     }};
 
     var data = `{
-        "thing_label": "typewriter",
-        "thing_status": "in storage",
-        "thing_condition": "new",
-        "person_role": "owner",
-        "person_contactInfo": "123-333-3333",
-        "place_storedIn": "garage",
-        "category_label": "antiques",
-        "hist_desc": "I got this at a yard sale - good condition.",
-        "hist_date": "10/12/2021",
-        "artifact_type": "typewriter",
-        "imgLink": "www.google.com"
+        "thing_label": "${document.getElementById("thing_label").value}",
+        "thing_status": "${document.getElementById("thing_status").value}",
+        "thing_condition": "${document.getElementById("thing_condition").value}",
+        "person_role": "${document.getElementById("person_role").value}",
+        "person_contactInfo": "${document.getElementById("person_contactInfo").value}",
+        "place_storedIn": "${document.getElementById("place_storedIn").value}",
+        "category_label": "${document.getElementById("category_label").value}",
+        "hist_desc": "${document.getElementById("hist_desc").value}",
+        "hist_date": "${document.getElementById("hist_date").value}",
+        "artifact_type": "${document.getElementById("artifact_type").value}",
+        "imgLink": "${document.getElementById("imgLink").value}"
     }`;
 
     xhr.send(data);
@@ -44,8 +44,3 @@ function doGet(){
 
     xhr.send(data);
 };
-
-function testFields(){
-    console.log(document.getElementById("thing_label").innerText);
-    console.log(document.getElementById("thing_label").innerHTML);
-}

@@ -1,5 +1,5 @@
 //***************************************************************/
-// DISABLED TO ALLOW FOR HEROKU DEPLOYMENT WITH SERIALIZE.
+// DISABLED TO ALLOW FOR HEROKU DEPLOYMENT WITH SEQUELIZE.
 // DO NOT RE-ENABLE, SAVING FOR LEGACY. -AS 11/15/21
 //***************************************************************/
 // module.exports = {
