@@ -40,7 +40,6 @@ function doPost(){
     document.getElementById("artifact_type").value = "";
     document.getElementById("imgLink").value = "";
 };
-
 function doGet(){
     var url = "/api/catalogs";
     var xhr = new XMLHttpRequest();
@@ -53,6 +52,8 @@ function doGet(){
         console.log(xhr.status);
         console.log(xhr.responseText);
     }};
+
+    var data = {};
 
     xhr.send(data);
 };
@@ -70,5 +71,7 @@ function deleteAll() {
         console.log(xhr.responseText);
     }};
 
+    var data = {};
+    
     xhr.send();
 }
