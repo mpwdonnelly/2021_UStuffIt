@@ -5,7 +5,7 @@ const Op = db.sequelize.Op;
 
 //Create and save a catalog item
 exports.create = (req,res) => {
-    
+
     //validate the request
     if (!req.body.thing_label) {
         res.status(400).send({
@@ -82,7 +82,7 @@ exports.deleteAll = (req,res) => {
         truncate: false
     })
     .then(nums => {
-        res.send({message: `${nums} catalogged items were deleted successfully!`})
+        res.send({message: `${nums} cataloged items were deleted successfully!`})
     })
     .catch(err => {
         res.status(500).send({
