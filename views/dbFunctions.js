@@ -1,4 +1,8 @@
 function doPost(){
+    if (document.getElementById("thing_label").value == ""){
+        alert("Item Label cannot be empty when creating a cataloged item!");
+    }
+
     var url = "/api/catalogs";
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url);
