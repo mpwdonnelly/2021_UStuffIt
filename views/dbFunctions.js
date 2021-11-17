@@ -1,6 +1,8 @@
+//create one DB entry based on form fields
 function doPost(){
     if (document.getElementById("thing_label").value == ""){
         alert("Item Label cannot be empty when creating a cataloged item!");
+        return;
     }
 
     var url = "/api/catalogs";
@@ -31,6 +33,8 @@ function doPost(){
 
     xhr.send(data);
 };
+
+//get all from database
 function doGet(){
     var url = "/api/catalogs";
     var xhr = new XMLHttpRequest();
@@ -49,6 +53,7 @@ function doGet(){
     xhr.send(data);
 };
 
+//delete all from database
 function deleteAll(){
     var url = "/api/catalogs";
     var xhr = new XMLHttpRequest();
@@ -67,6 +72,7 @@ function deleteAll(){
     xhr.send(data);
 };
 
+//clear the form
 function clearAll(){
     document.getElementById("thing_label").value = "";
     document.getElementById("thing_status").value = "";
