@@ -1,3 +1,5 @@
+const { CHAR } = require("sequelize/types");
+
 //create one DB entry based on form fields
 function doPost(){
     if (document.getElementById("thing_label").value == ""){
@@ -13,8 +15,9 @@ function doPost(){
 
     xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
-        console.log(xhr.status);
-        console.log(xhr.responseText);
+        console.log("Server Response:" + xhr.status);
+        var responseText = xhr.responseText;
+        console.log("Response Text:" + responseText);
     }};
 
     var data = `{
@@ -35,7 +38,7 @@ function doPost(){
 };
 
 //get all from database
-function doGet(){
+function doGetAll(){
     var url = "/api/catalogs";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -44,14 +47,38 @@ function doGet(){
 
     xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
-        console.log(xhr.status);
-        console.log(xhr.responseText);
+        console.log("Server Response:" + xhr.status);
+        var responseText = xhr.responseText;
+        console.log("Response Text:" + responseText);
     }};
 
     var data = `{}`;
 
     xhr.send(data);
 };
+
+//get one from database via ID
+function doGetOneById(){
+
+    //locate via ID
+    var data = `${document.getElementById("idTest").value}`;
+    console.log(data);
+
+    var url = `/api/catalogs/${data}`;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url)
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log("Server Response:" + xhr.status);
+            var responseText = xhr.responseText;
+            console.log("Response Text:" + responseText);
+        }};
+    
+    xhr.send(data);
+}
 
 //delete all from database
 function deleteAll(){
@@ -63,8 +90,9 @@ function deleteAll(){
 
     xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
-        console.log(xhr.status);
-        console.log(xhr.responseText);
+        console.log("Server Response:" + xhr.status);
+        var responseText = xhr.responseText;
+        console.log("Response Text:" + responseText);
     }};
 
     var data = `{}`;
@@ -87,4 +115,11 @@ function clearAll(){
     document.getElementById("imgLink").value = "";
 }
 
-//toDo: add remainder of buttons for remaining routing functions
+//TODO: add remainder of functions for button clicks to access the built routes
+
+//TODO: add routing for "LIKE" sql searches (will be based on potential "vague" search options from a dropdown)
+//**needs to handle all the "primary" search criteria */
+
+//TODO: build "prettify" functions to display returned results in table of some sort
+//on index.html and call the needed prettify function at the end of a route that
+//returns info we want displayed to the user

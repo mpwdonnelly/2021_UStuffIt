@@ -11,7 +11,7 @@ exports.create = (req,res) => {
         res.status(400).send({
             message: "Error - item label can NOT be empty!"
         });
-        alert("Item Label field cannot be empty!")
+        
         return;
     }
 

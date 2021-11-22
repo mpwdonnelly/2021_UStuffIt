@@ -1,55 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>uStuffIt</title>
     <script type="text/javascript" src="dbFunctions.js"></script>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link href="inventory.html">
 </head>
-    <body>
-        <div id="fullPage">
-            <h1>Welcome to uStuffIt!</h1>
-            <div id="inputs">
-                    <input type="text" id="thing_label"><label>Item Label</label><br>
-                    <input type="text" id="thing_status"><label>Item Status</label><br>
-                    <input type="text" id="thing_condition"><label>Item Condition</label><br>
-                    <input type="text" id="person_role"><label>Person's Role</label><br>
-                    <input type="text" id="person_contactInfo"><label>Contact Info</label><br>
-                    <input type="text" id="place_storedIn"><label>Stored In</label><br>
-                    <input type="text" id="category_label"><label>Category Label</label><br>
-                    <input type="text" id="hist_desc"><label>Description</label><br>
-                    <input type="text" id="hist_date"><label>Date of Purchase</label><br>
-                    <input type="text" id="artifact_type"><label>Artifact Type</label><br>
-                    <input type="text" id="imgLink"><label>Link to Image</label><br>
 
-            </div>
-                    <button id='createButton' onclick="doPost()"> CREATE AN ITEM! </button>
-                    <button id='getAllButton' onclick="doGet()"> GET EVERYTHING IN DB </button>
-                    <button id='mystuff' onclick="location.href='inventory.html'"> See My Stuff </button>
-                    <button id='deleteAllButton' onclick="deleteAll()"> DELETE EVERYTHING IN DB </button>
-                    <button id='clearFormButton' onclick="clearAll()"> CLEAR THE FORM </button>
+<body>
+    <h3>Welcome to uStuffIt!</h3>
 
-                <div id="test">
-                    <h1>test</h1>
-                    <label>hi</label>
-                </div>
-                <br>
+    <div>
+        <input type="text" id="thing_label">Item Label<br>
+        <input type="text" id="thing_status">Item Status<br>
+        <input type="text" id="thing_condition">Item Condition<br>
+        <input type="text" id="person_role">Person's Role<br>
+        <input type="text" id="person_contactInfo">Contact Info<br>
+        <input type="text" id="place_storedIn">Stored In<br>
+        <input type="text" id="category_label">Category Label<br>
+        <input type="text" id="hist_desc">Description<br>
+        <input type="text" id="hist_date">Date of Purchase<br>
+        <input type="text" id="artifact_type">Artifact Type<br>
+        <input type="text" id="imgLink">Link to Image<br>
+    </div>
 
-                <div id="test2">
-                    <h1>test2</h1>
-                    <label>hi</label>
-                </div>
-                <br>
-                    <!-- Just for layout Purposes -->
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div>
+        <input type="text" id="idTest">Enter the ID to find<br>
+    </div>
 
 
-                    <h2> CREATE AN ITEM button will create an item based on the text fields - check the console to see.</h2>
-                    <h2> GET EVERYTHING IN DB button will return all items currently in the DB - check the console to see.</h2>
-                    <h2> DELETE EVERYTHING IN DB button will clear the DB - check the console to see message.</h2>
-        </div>
-    </body>
+    <button id='createButton' onclick="doPost()">CREATE AN ITEM!</button><br>
+    <button id='getAllButton' onclick="doGetAll()">GET EVERYTHING IN DB</button><br>
+    <button id='deleteAllButton' onclick="deleteAll()">DELETE EVERYTHING IN DB</button><br>
+    <button id='clearFormButton' onclick="clearAll()">CLEAR THE FORM</button><br>
+    <button id='findBySingleId' onclick="doGetOneById()">GET VIA ID IN FORM</button>
+
+    <h2>CREATE AN ITEM button will create an item based on the text fields - check the console to see.</h2>
+    <h2>GET EVERYTHING IN DB button will return all items currently in the DB - check the console to see.</h2>
+    <h2>DELETE EVERYTHING IN DB button will clear the DB - check the console to see message.</h2>
+
+    <div>
+        <p id='return'></p>
+    </div>
+
+</body>
+
 </html>
