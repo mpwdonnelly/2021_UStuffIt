@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +8,43 @@
     <title>uStuffIt</title>
     <script type="text/javascript" src="dbFunctions.js"></script>
 </head>
+
 <body>
     <h3>Welcome to uStuffIt!</h3>
 
-    <input type="text" id="thing_label">Item Label<br>
-    <input type="text" id="thing_status">Item Status<br>
-    <input type="text" id="thing_condition">Item Condition<br>
-    <input type="text" id="person_role">Person's Role<br>
-    <input type="text" id="person_contactInfo">Contact Info<br>
-    <input type="text" id="place_storedIn">Stored In<br>
-    <input type="text" id="category_label">Category Label<br>
-    <input type="text" id="hist_desc">Description<br>
-    <input type="text" id="hist_date">Date of Purchase<br>
-    <input type="text" id="artifact_type">Artifact Type<br>
-    <input type="text" id="imgLink">Link to Image<br>
+    <div>
+        <input type="text" id="thing_label">Item Label<br>
+        <input type="text" id="thing_status">Item Status<br>
+        <input type="text" id="thing_condition">Item Condition<br>
+        <input type="text" id="person_role">Person's Role<br>
+        <input type="text" id="person_contactInfo">Contact Info<br>
+        <input type="text" id="place_storedIn">Stored In<br>
+        <input type="text" id="category_label">Category Label<br>
+        <input type="text" id="hist_desc">Description<br>
+        <input type="text" id="hist_date">Date of Purchase<br>
+        <input type="text" id="artifact_type">Artifact Type<br>
+        <input type="text" id="imgLink">Link to Image<br>
+    </div>
+
+    <div>
+        <input type="text" id="idTest">Enter the ID to find<br>
+    </div>
 
 
-    <button id='createButton' onclick="doPost()">CREATE AN ITEM!</button>
-    <button id='getAllButton' onclick="doGet()">GET EVERYTHING IN DB</button>
-    <button id='deleteAllButton' onclick="deleteAll()">DELETE EVERYTHING IN DB</button>
-    <button id='clearFormButton' onclick="clearAll()">CLEAR THE FORM</button>
+    <button id='createButton' onclick="doPost()">CREATE AN ITEM!</button><br>
+    <button id='getAllButton' onclick="doGetAll()">GET EVERYTHING IN DB</button><br>
+    <button id='deleteAllButton' onclick="deleteAll()">DELETE EVERYTHING IN DB</button><br>
+    <button id='clearFormButton' onclick="clearAll()">CLEAR THE FORM</button><br>
+    <button id='findBySingleId' onclick="doGetOneById()">GET VIA ID IN FORM</button>
 
     <h2>CREATE AN ITEM button will create an item based on the text fields - check the console to see.</h2>
     <h2>GET EVERYTHING IN DB button will return all items currently in the DB - check the console to see.</h2>
     <h2>DELETE EVERYTHING IN DB button will clear the DB - check the console to see message.</h2>
 
+    <div>
+        <p id='return'></p>
+    </div>
+
 </body>
+
 </html>
