@@ -115,7 +115,10 @@ function clearAll(){
     document.getElementById("imgLink").value = "";
 }
 
-//TODO: add remainder of buttons for remaining routing functions
+//TODO: add remainder of functions for button clicks to access the built routes
+
+//TODO: add routing for "LIKE" sql searches (will be based on potential "vague" search options from a dropdown)
+//**needs to handle all the "primary" search criteria */
 
 //TODO: build "prettify" functions to display returned results in table of some sort
 //on index.html and call the needed prettify function at the end of a route that
