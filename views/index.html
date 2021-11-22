@@ -28,6 +28,7 @@
 
     <div>
         <input type="text" id="idTest">Enter the ID to find<br>
+        <input type="text" id="labelTest">Enter the Item Label to find<br>
     </div>
 
 
@@ -35,7 +36,8 @@
     <button id='getAllButton' onclick="doGetAll()">GET EVERYTHING IN DB</button><br>
     <button id='deleteAllButton' onclick="deleteAll()">DELETE EVERYTHING IN DB</button><br>
     <button id='clearFormButton' onclick="clearAll()">CLEAR THE FORM</button><br>
-    <button id='findBySingleId' onclick="doGetOneById()">GET VIA ID IN FORM</button>
+    <button id='findBySingleId' onclick="doGetOneById()">GET VIA ID IN FORM</button><br>
+    <button id='findByThingLabel' onclick="getAllByThingLabel()">GET VIA ITEM LABEL IN FORM</button>
 
     <h2>CREATE AN ITEM button will create an item based on the text fields - check the console to see.</h2>
     <h2>GET EVERYTHING IN DB button will return all items currently in the DB - check the console to see.</h2>

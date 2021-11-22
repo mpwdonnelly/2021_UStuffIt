@@ -1,4 +1,4 @@
-const { CHAR } = require("sequelize/types");
+//const { CHAR } = require("sequelize/types");
 
 //create one DB entry based on form fields
 function doPost(){
@@ -65,6 +65,29 @@ function doGetOneById(){
     console.log(data);
 
     var url = `/api/catalogs/${data}`;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url)
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log("Server Response:" + xhr.status);
+            var responseText = xhr.responseText;
+            console.log("Response Text:" + responseText);
+        }};
+    
+    xhr.send(data);
+}
+
+//get all from database via thing_label
+function getAllByThingLabel(){
+
+    //locate via ID
+    var data = `${document.getElementById("labelTest").value}`;
+    console.log(data);
+
+    var url = `/api/catalogs/getByLabel/${data}`;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url)
     xhr.setRequestHeader("Accept", "application/json");

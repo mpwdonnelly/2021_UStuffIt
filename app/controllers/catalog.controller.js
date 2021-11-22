@@ -1,4 +1,5 @@
 //const { regexp } = require("sequelize/types/lib/operators");
+//const { like } = require("sequelize/types/lib/operators");
 const db = require("../models");
 const Catalog = db.catalogs;
 const Op = db.sequelize.Op;
@@ -56,7 +57,7 @@ exports.findAll = (req,res) => {
 };
 
 //find one entry by id
-exports.findOne = (req,res) => {
+exports.findOneById = (req,res) => {
     const id = req.params.id;
 
     Catalog.findByPk(id)
@@ -76,6 +77,27 @@ exports.findOne = (req,res) => {
     });
 };
 
+//find all with matching thing_label (uses "LIKE" search functionality)
+exports.findAllByThingLabel = (req,res) => {
+  const thing_label = req.params.thing_label;
+
+  Catalog.findAll({like: thing_label})
+  .then(data => {
+      if (data) {
+          res.send(data);
+      } else {
+          res.status(400).send({
+              message: `Can't locate any catalog items with a label of ${thing_label}.`
+          });
+      }
+  })
+  .catch(err => {
+      res.status(500).send({
+          message: "There was an error retrieving a catalog item with the label of " + thing_label
+      });
+  });
+};
+
 //delete everything in the db
 exports.deleteAll = (req,res) => {
     Catalog.destroy({
@@ -93,12 +115,10 @@ exports.deleteAll = (req,res) => {
 };
 
 //delete by id
-exports.delete = (req, res) => {
+exports.deleteById = (req, res) => {
     const id = req.params.id;
   
-    Catalog.destroy({
-      where: { id: id }
-    })
+    Catalog.destroy({where: { id: id }})
       .then(num => {
         if (num == 1) {
           res.send({
@@ -118,7 +138,7 @@ exports.delete = (req, res) => {
   };
 
   //update based on id
-  exports.update = (req, res) => {
+  exports.updateById = (req, res) => {
     const id = req.params.id;
   
     Catalog.update(req.body, {
