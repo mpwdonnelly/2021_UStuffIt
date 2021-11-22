@@ -22,7 +22,7 @@
   "author": "Alex Snyder",
   "license": "ISC",
   "dependencies": {
-    "@heroku-cli/plugin-buildpacks": "^7.54.0",
+    "@heroku-cli/plugin-buildpacks": "7.33.3",
     "@heroku/buildpack-registry": "^1.0.1",
     "async-file": "^2.0.2",
     "body-parser": "^1.19.0",
@@ -31,7 +31,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "got": "^11.8.2",
-    "heroku": "^7.59.1",
+    "heroku": "^7.33.3",
     "path": "^0.12.7",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
