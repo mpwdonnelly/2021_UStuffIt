@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iStuffedIt</title>
     <script type="text/javascript" src="dbFunctions.js"></script>
-    <link rel="stylesheet" href="../css/styles.css">
+    <!--<link rel="stylesheet" href="../css/styles.css">-->
 
 </head>
 <body>
@@ -16,6 +16,67 @@
     <textarea id="categories" name="w3review" rows="4" cols="50"></textarea>
 
 </div>
+
+<!--BELOW IS FOR INLINE STYLING TO PREVENT MIME TYPE ERRORS WHEN TRYING TO LOAD THE CSS EXTERNALLY-->
+<style>
+    body::after {
+        content: "";
+        background-image: url('images/bazaar-1462047-1279x931.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0.30;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #fullPage {
+        padding-left: 50px;
+
+
+    }
+
+    input,
+    textarea,
+    button {
+        font-size: medium;
+        background-color: #D0C8A8;
+        border-radius: 3px;
+        opacity: 1;
+        margin-bottom: 15px;
+        box-shadow: -4px -4px 8px #808D76, -2px -2px 4px #808D76 inset;
+        margin-right: 10px;
+    }
+
+    button {
+        font-size: medium;
+        background-color: #D0C8A8;
+        border-radius: 15px;
+        opacity: 1;
+        margin-bottom: 15px;
+        box-shadow: 2px 2px 4px #808D76 inset, -2px -2px 4px #808D76 inset;
+        margin-right: 10px;
+    }
+
+    label {
+        font-size: large;
+        font-weight: bold;
+        text-shadow: -5px -5px 7px #808D76;
+
+    }
+
+    #test {
+        border: solid 1px red;
+    }
+
+    #test2 {
+        border: solid 1px blue;
+        margin-right: 100px;
+    }
+</style>
 
 </body>
 </html>
