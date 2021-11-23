@@ -61,7 +61,7 @@ function doGetAll(){
 function doGetOneById(){
 
     //locate via ID
-    var data = `${document.getElementById("idTest").value}`;
+    var data = document.getElementById("idTest").value;
     console.log(data);
 
     var url = `/api/catalogs/${data}`;
@@ -84,7 +84,7 @@ function doGetOneById(){
 function getAllByThingLabel(){
 
     //locate via ID
-    var data = `${document.getElementById("labelTest").value}`;
+    var data = document.getElementById("labelTest").value;
     console.log(data);
 
     var url = `/api/catalogs/getByLabel/${data}`;

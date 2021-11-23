@@ -1,8 +1,6 @@
-//const { regexp } = require("sequelize/types/lib/operators");
-//const { like } = require("sequelize/types/lib/operators");
 const db = require("../models");
 const Catalog = db.catalogs;
-const Op = db.sequelize.Op;
+const Op = db.Sequelize.Op;
 
 //Create and save a catalog item
 exports.create = (req,res) => {
@@ -79,9 +77,13 @@ exports.findOneById = (req,res) => {
 
 //find all with matching thing_label (uses "LIKE" search functionality)
 exports.findAllByThingLabel = (req,res) => {
-  const thing_label = req.params.thing_label;
+  const searchString = req.params.thing_label;
 
-  Catalog.findAll({like: thing_label})
+  Catalog.findAll({
+    where: {
+      thing_label: {[Op.like]: `%${searchString}%`}
+    }
+  })
   .then(data => {
       if (data) {
           res.send(data);
