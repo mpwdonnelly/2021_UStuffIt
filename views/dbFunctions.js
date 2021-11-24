@@ -80,6 +80,44 @@ function doGetOneById(){
     xhr.send(data);
 }
 
+//update one record from the db based on ID
+function updateById(){
+
+    //locate via ID
+    var id = document.getElementById("updateById").value;
+    console.log(id);
+
+    var url = `/api/catalogs/${id}`;
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", url)
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log("Server Response:" + xhr.status);
+            var responseText = xhr.responseText;
+            console.log("Response Text:" + responseText);
+        }};
+    
+
+    var data = `{
+        "thing_label": "${document.getElementById("thing_label").value}",
+        "thing_status": "${document.getElementById("thing_status").value}",
+        "thing_condition": "${document.getElementById("thing_condition").value}",
+        "person_role": "${document.getElementById("person_role").value}",
+        "person_contactInfo": "${document.getElementById("person_contactInfo").value}",
+        "place_storedIn": "${document.getElementById("place_storedIn").value}",
+        "category_label": "${document.getElementById("category_label").value}",
+        "hist_desc": "${document.getElementById("hist_desc").value}",
+        "hist_date": "${document.getElementById("hist_date").value}",
+        "artifact_type": "${document.getElementById("artifact_type").value}",
+        "imgLink": "${document.getElementById("imgLink").value}"
+    }`;
+    
+    xhr.send(data);
+}
+
 //get all from database via thing_label
 function getAllByThingLabel(){
 
