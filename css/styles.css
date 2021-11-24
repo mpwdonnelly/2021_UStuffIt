@@ -14,8 +14,6 @@ body::after {
 
 #fullPage {
     padding-left: 50px;
-
-
 }
 
 input,textarea,button {
@@ -27,6 +25,7 @@ input,textarea,button {
     box-shadow: -4px -4px 8px #808D76, -2px -2px 4px #808D76 inset ;
     margin-right: 10px;
 }
+
 button {
     font-size: medium;
     background-color: #D0C8A8;
@@ -36,15 +35,17 @@ button {
     box-shadow: 2px 2px 4px #808D76 inset, -2px -2px 4px #808D76 inset ;
     margin-right: 10px;
 }
+
 label {
     font-size: large;
     font-weight: bold;
     text-shadow: -5px -5px 7px #808D76;
-
 }
+
 #test {
     border: solid 1px  red;
 }
+
 #test2 {
     border: solid 1px blue;
     margin-right: 100px;
