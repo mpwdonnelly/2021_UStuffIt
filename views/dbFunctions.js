@@ -161,6 +161,30 @@ function deleteAll(){
     xhr.send(data);
 };
 
+//delete all from database
+function deleteById(){
+    //locate via ID
+    var id = document.getElementById("deleteById").value;
+    console.log(id);
+
+    var url = `/api/catalogs/${id}`;
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+        console.log("Server Response:" + xhr.status);
+        var responseText = xhr.responseText;
+        console.log("Response Text:" + responseText);
+    }};
+
+    var data = `{}`;
+
+    xhr.send(data);
+};
+
 //clear the form
 function clearAll(){
     document.getElementById("thing_label").value = "";
