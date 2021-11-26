@@ -6,7 +6,7 @@
 // module.exports = {
 //     HOST: "localhost",
 //     USER: "postgres",
-//     PASSWORD: "mysql",
+//     PASSWORD: "Darrin1973!",
 //     DB: "catalogdb",
 //     dialect: "postgres",
 //     dialectOptions: {

@@ -1,4 +1,4 @@
-const dbConfig = require("../config/db.config");
+const dbConfig = require("../app/config/db.config");
 const Sequelize = require("sequelize");
 
 //***************************************************************/
@@ -10,7 +10,7 @@ const Sequelize = require("sequelize");
 //     host: dbConfig.HOST,
 //     dialect: dbConfig.dialect,
 //     operatorsAliases: false,
-
+//
 //     pool: {
 //         max: dbConfig.pool.max,
 //         min: dbConfig.pool.min,
@@ -36,6 +36,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.catalogs = require("./catalog.model.js")(sequelize, Sequelize);
+db.catalogs = require("../app/models/catalog.model.js")(sequelize, Sequelize);
 
 module.exports = db;
