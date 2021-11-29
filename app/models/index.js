@@ -1,4 +1,4 @@
-const dbConfig = require("../app/config/db.config");
+const dbConfig = require("../config/db.config");
 const Sequelize = require("sequelize");
 
 //***************************************************************/
@@ -36,6 +36,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.catalogs = require("../app/models/catalog.model.js")(sequelize, Sequelize);
+db.catalogs = require("./catalog.model.js")(sequelize, Sequelize);
 
 module.exports = db;
