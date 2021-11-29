@@ -1,0 +1,34 @@
+ <section id="add" class="container">
+    <div class="form-wrap">
+      <h1>Add A Thing</h1>
+      <p>Put important information about the thing here.</p>
+      {{#each errors}}
+        <div class="error">
+          <p>{{text}}</p>
+        </div>
+      {{/each}}
+      <form action="/catalogs/add" method="POST">
+        <div class="input-group">
+          <label for="thing_label">Label</label>
+          <input type="text" name="thing_label" id="thing_label" class="input-box" placeholder="Red Royal Typewriter, Little Elmo Doll, etc."
+            maxlength="100" value={{thing_label}}>
+        </div>
+        <div class="input-group">
+          <label for="thing_status">Status</label>
+          <input type="text" name="thing_status" id="thing_status" class="input-box" placeholder="In storage, on display, under repair, etc."
+          maxlength="100" value={{thing_status}}>
+        </div>
+        <div class="input-group">
+          <label for="thing_condition">Condition</label>
+          <input type="text" name="thing_condition" id="thing_condition" class="input-box" 
+            placeholder="Excellent, Fair, Poor, etc" value={{thing_condition}}>
+        </div>
+        <div class="input-group">
+          <label for="hist_desc">Description</label>
+          <textarea name="hist_desc" id="hist_desc" class="input-box" placeholder="Describe the thing in detail here"
+            rows="10">{{hist_desc}}</textarea>
+        </div>
+        <input type="submit" value="Add Thing" class="btn btn-reverse">
+      </form>
+    </div>
+  </section>

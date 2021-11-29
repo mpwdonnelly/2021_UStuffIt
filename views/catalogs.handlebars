@@ -1,0 +1,21 @@
+<section id="catalogs" class="container">
+
+  <h1>All Things</h1>
+
+  {{#each catalogs}}
+    <div class="catalog">
+      <h3>{{thing_label}}</h3>
+      <p>{{hist_desc}}</p>
+      <ul>
+        <li>Condition: {{thing_condition}}</li>
+        <li><a href="mailto:{{person_contactInfo}}" class="btn btn-reverse">Apply Now</a></li>
+      </ul>
+      <div class="tech">
+        <small>Status: <span>{{thing_status}}</span></small>
+      </div>
+    </div>
+  {{else}}
+      <p>No Things in catalog.</p>
+  {{/each}}
+  </section>
+  

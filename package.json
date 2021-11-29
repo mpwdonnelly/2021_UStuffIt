@@ -1,44 +1,24 @@
 {
-  "name": "ustuffit",
-  "version": "1.0.0",
-  "description": "API to allow user-entered catalogs to be stored, updated, and modified.",
-  "main": "server.js",
+  "name": "uStuffIt",
+  "version": "2.0.0",
+  "description": "Simple job find app for coders",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
-  "engines": {
-    "node": "^16.13.0",
-    "npm": "^8.1.0"
-  },
-  "keywords": [
-    "nodejs",
-    "sequelize",
-    "postgresql",
-    "rest",
-    "api",
-    "express"
-  ],
-  "author": "Alex Snyder",
-  "license": "ISC",
+  "author": "Mike Donnelly, Alex Snyder, Darrin Schreiber",
+  "license": "MIT",
   "dependencies": {
-    "@heroku-cli/plugin-buildpacks": "^7.33.3",
-    "@heroku/buildpack-registry": "^1.0.1",
-    "async-file": "^2.0.2",
+    "@handlebars/allow-prototype-access": "^1.0.5",
     "body-parser": "^1.19.0",
-    "cjs": "^0.0.11",
-    "cli-ux": "^5.6.3",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "got": "^11.8.2",
-    "heroku": "^7.33.3",
-    "path": "^0.12.7",
+    "express-handlebars": "^6.0.2",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "pgsql": "^1.0.0",
-    "phoenix": "^1.6.2",
-    "psql": "^0.0.1",
-    "sequelize": "^6.11.0",
-    "vue": "^2.6.14"
+    "sequelize": "^4.41.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
