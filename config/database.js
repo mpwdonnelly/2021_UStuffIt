@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 // for the localhost postgres db on the backend
 // change these credentials to fit your own setup
-module.exports = new Sequelize('catalogdb', 'miked', 'D92t84ow!', {
+module.exports = new Sequelize('catalogdb', 'postgres', 'Darrin1973!', {
   host: 'localhost',
   dialect: 'postgres',
   operatorAliases: false,

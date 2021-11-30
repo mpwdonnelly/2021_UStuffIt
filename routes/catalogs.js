@@ -97,16 +97,16 @@ router.post('/add', (req, res) => {
 // saying they're unpaired or some shit
 // commenting out and putting in a dummy call for now
 // TODO: make this GD search function work dammit
-// router.get('/search', (req, res) => {
-//   let { term } = req.query;
-//   term = term.toLowerCase().trim();
+router.get('/search', (req, res) => {
+  let {term} = req.query;
+  term = term.toLowerCase().trim();
 
-//   Catalog.findAll({ where: { thing_label { [Op.like]: `%${term}%`}}})
-//   .then(catalogs => res.render('catalogs', { catalogs }))
-//   .catch(err => console.log("Search string error: " + err))
-// }); // end search for thing
+  Catalog.findAll({ where: { thing_label: { [Op.like]: `%${term}%`}}})
+  .then(catalogs => res.render('catalogs', { catalogs }))
+  .catch(err => console.log("Search string error: " + err))
+}); // end search for thing
 
 // dummy search, should just redirect. See above
-router.get('/search', (req, res) => res.redirect('/catalog'));
+// router.get('/search', (req, res) => res.render('search'));
 
 module.exports = router;
