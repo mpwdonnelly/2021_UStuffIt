@@ -77,12 +77,19 @@ header.inner {
   box-shadow: var(--box-shadow);
 }
 
+/* .inputForm {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around
+} */
+
 /* Buttons */
 .btn {
   color: #fff;
   padding: 0.6rem;
   border: 1px solid #ccc;
   transition: all 0.7s;
+
 }
 
 .btn:hover {

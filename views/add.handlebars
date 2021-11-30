@@ -7,7 +7,7 @@
           <p>{{text}}</p>
         </div>
       {{/each}}
-      <form action="/catalogs/add" method="POST">
+      <form class="inputForm" action="/catalogs/add" method="POST">
         <div class="input-group">
           <label for="thing_label">Label</label>
           <input type="text" name="thing_label" id="thing_label" class="input-box" placeholder="Red Royal Typewriter, Little Elmo Doll, etc."
@@ -24,9 +24,39 @@
             placeholder="Excellent, Fair, Poor, etc" value={{thing_condition}}>
         </div>
         <div class="input-group">
-          <label for="hist_desc">Description</label>
-          <textarea name="hist_desc" id="hist_desc" class="input-box" placeholder="Describe the thing in detail here"
+          <label for="hist_desc">History/Description</label>
+          <textarea name="hist_desc" id="hist_desc" class="input-box" placeholder="Describe this thing in sufficient detail here, including any important history, and your relation to it."
             rows="10">{{hist_desc}}</textarea>
+        </div>
+        <div class="input-group">
+          <label for="place_storedIn">Location</label>
+          <input type="text" name="place_storedIn" id="place_storedIn" class="input-box" 
+            placeholder="Where can this thing be found?" value={{place_storedIn}}>
+        </div>
+        <div class="input-group">
+          <label for="category_label">Category(s)</label>
+          <input type="text" name="category_label" id="category_label" class="input-box" 
+            placeholder="What category(s) does this thing belong to?" value={{category_label}}>
+        </div>
+        <div class="input-group">
+          <label for="person_role">Owner(s), Claimant(s), other interested parties</label>
+          <input type="text" name="person_role" id="person_role" class="input-box" 
+            placeholder="Who does this thing belong to?" value={{person_role}}>
+        </div>
+        <div class="input-group">
+          <label for="person_contactInfo">Contact E-Mail</label>
+          <input type="text" name="person_contactInfo" id="person_contactInfo" class="input-box" 
+            placeholder="Enter the email of the primary person who owns this thing" value={{person_contactInfo}}>
+        </div>
+        <div class="input-group">
+          <label for="artifact_type">Information Link</label>
+          <input type="text" name="artifact_type" id="artifact_type" class="input-box" 
+            placeholder="You can put a link here to an informative web page about the thing." value={{artifact_type}}>
+        </div>
+        <div class="input-group">
+          <label for="imgLink">Image Link</label>
+          <input type="text" name="imgLink" id="imgLink" class="input-box" 
+            placeholder="Put a link here to an image of the thing." value={{imgLink}}>
         </div>
         <input type="submit" value="Add Thing" class="btn btn-reverse">
       </form>
