@@ -34,19 +34,19 @@ router.post('/add', (req, res) => {
     createdAt,
     updatedAt } = req.body;
 
-  let errors = [];
+  // let errors = [];
 
 // // do some validation
 // TODO: Need to change all this to make it appropriate for our data
-  if(!thing_label) {
-    errors.push({text: 'Please add a thing label'});
-  }
-  // if(!thing_status) {
-  //   errors.push({text: 'Please add thing status'});
-  // }
-  // if(!thing_condition) {
-  //   errors.push({text: 'Please add a thing condition'});
-  // }
+//   if(!title) {
+//     errors.push({text: 'Please add a title'});
+//   }
+//   if(!technologies) {
+//     errors.push({text: 'Please add technologies'});
+//   }
+//   if(!description) {
+//     errors.push({text: 'Please add a description'});
+//   }
 //   if(!contact_email) {
 //     errors.push({text: 'Please add a contact email'});
 //   }
@@ -92,9 +92,10 @@ router.post('/add', (req, res) => {
   
 }); // end add thing
 
-// Display add thing form
-router.get('/search', (req, res) => res.render('search'));
 // Search for item
+// for some reason my parser is choking on the curly brax
+// saying they're unpaired or some shit
+// commenting out and putting in a dummy call for now
 // TODO: make this GD search function work dammit
 router.get('/search', (req, res) => {
   let {term} = req.query;
