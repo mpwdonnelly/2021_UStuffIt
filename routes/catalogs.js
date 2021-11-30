@@ -17,6 +17,8 @@ router.get('/', (req, res) =>
 // Display add thing form
 router.get('/add', (req, res) => res.render('add'));
 
+
+
 // Add a thing
 router.post('/add', (req, res) => {
 
