@@ -2,6 +2,9 @@ const Sequelize = require('sequelize');
 
 // for the localhost postgres db on the backend
 // change these credentials to fit your own setup
+//////////////////////////////////////////////////////////////////////////
+// ******** DISABLE LINES 8-19 IF DEPLOYING TO HEROKU ****************
+//////////////////////////////////////////////////////////////////////////
 // module.exports = new Sequelize('catalogdb', 'miked', 'D92t84ow!', {
 //   host: 'localhost',
 //   dialect: 'postgres',
@@ -15,6 +18,9 @@ const Sequelize = require('sequelize');
 //   },
 // });
 
+//////////////////////////////////////////////////////////////////////////
+// ******** ENABLE LINES 24-33 IF DEPLOYING TO HEROKU ****************
+//////////////////////////////////////////////////////////////////////////
 module.exports = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
   protocol: 'postgres',
@@ -25,4 +31,3 @@ module.exports = new Sequelize(process.env.DATABASE_URL, {
       }
   }
 });
-
