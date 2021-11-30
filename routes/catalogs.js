@@ -100,7 +100,7 @@ router.get('/search', (req, res) => {
   let {term} = req.query;
   term = term.toLowerCase().trim();
 
-  Catalog.findAll({ where: { thing_label: { [Op.like]: `%${term}%`}}})
+  Catalog.findAll({ where: { thing_label: { [Op.iLike]: `%${term}%`}}})
   .then(catalogs => res.render('catalogs', { catalogs }))
   .catch(err => console.log("Search string error: " + err))
 }); // end search for thing

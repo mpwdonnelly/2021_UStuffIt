@@ -1,7 +1,7 @@
 {
   "name": "uStuffIt",
   "version": "2.0.0",
-  "description": "Simple job find app for coders",
+  "description": "Use this to keep your stuff straight",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

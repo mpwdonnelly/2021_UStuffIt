@@ -5,14 +5,18 @@
   {{#each catalogs}}
     <div class="catalog">
       <h3>{{thing_label}}</h3>
-      <p>{{hist_desc}}</p>
+      <h4>{{category_label}}</h4>
       <ul>
+        <li>Status: {{thing_status}}</li>
         <li>Condition: {{thing_condition}}</li>
-        <li><a href="mailto:{{person_contactInfo}}" class="btn btn-reverse">Apply Now</a></li>
+        <li>Location: {{place_storedIn}}</li>
+        <li>Owner: {{person_role}}</li>
+        <li>Contact: {{person_contactInfo}}</li>
+        <li ><a href="{{artifact_type}}" class="btn btn-reverse">Info</a></li>
+        <li><a href="{{imgLink}}" class="btn btn-reverse">Image</a></li>
       </ul>
-      <div class="tech">
-        <small>Status: <span>{{thing_status}}</span></small>
-      </div>
+      <p>{{hist_desc}}</p>
+
     </div>
   {{else}}
       <p>No Things in catalog.</p>
