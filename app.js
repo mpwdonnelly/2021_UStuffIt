@@ -33,6 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // loads home page
 app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
 
+// Display about page
+app.get('/about', (req, res) => res.render('about'));
+
 // for routes: use routes/catalogs.js
 app.use('/catalogs', require('./routes/catalogs'));
 

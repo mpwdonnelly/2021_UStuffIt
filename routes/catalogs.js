@@ -14,10 +14,10 @@ router.get('/', (req, res) =>
     .catch(err => console.log(err)));
 
 
-// Display add gig form
+// Display add thing form
 router.get('/add', (req, res) => res.render('add'));
 
-// Add a gig
+// Add a thing
 router.post('/add', (req, res) => {
 
   let { thing_label,
@@ -87,19 +87,14 @@ router.post('/add', (req, res) => {
       createdAt,
       updatedAt
     })
-      .then(catalogs => res.redirect('/catalog'))
+      .then(catalogs => res.redirect('/catalogs'))
       .catch(err => console.log(err));
   
 }); // end add thing
 
-// Search for item
-// for some reason my parser is choking on the curly brax
-// saying they're unpaired or some shit
-// commenting out and putting in a dummy call for now
-// TODO: make this GD search function work dammit
 router.get('/search', (req, res) => {
   let {term} = req.query;
-  term = term.toLowerCase().trim();
+  // term = term.toLowerCase().trim();
 
   Catalog.findAll({ where: { thing_label: { [Op.iLike]: `%${term}%`}}})
   .then(catalogs => res.render('catalogs', { catalogs }))
@@ -107,6 +102,17 @@ router.get('/search', (req, res) => {
 }); // end search for thing
 
 // dummy search, should just redirect. See above
-// router.get('/search', (req, res) => res.render('search'));
+router.get('/smartSearch', (req, res) => res.render('search'));
+
+router.get('/search', (req, res) => {
+  let {term} = req.query;
+  // term = term.toLowerCase().trim();
+
+  Catalog.findAll({ where: { thing_label: { [Op.iLike]: `%${term}%`}}})
+  .then(catalogs => res.render('catalogs', { catalogs }))
+  .catch(err => console.log("Search string error: " + err))
+}); // end search for thing
+
+
 
 module.exports = router;
