@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 :root {
-  --primary-color: #568c9b;
-  --primary-hover-color: #64a5b7;
+  --primary-color: #14b94b;
+  --primary-hover-color: #1bf563;
   --bg-color: #333;
   --box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.7);
 }
@@ -33,7 +33,8 @@ a:hover {
 }
 
 .container {
-  max-width: 960px;
+  /* max-width: 960px; */
+  max-width: 95%;
   padding: 1rem 4rem;
   margin: auto;
   overflow: hidden;
@@ -180,15 +181,12 @@ input[type='search'] {
 .catalog ul {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .catalog li {
   margin-right: 0.5rem;
   padding: 0.6rem;
-}
-
-.catalog .tech span {
-  color: var(--primary-color);
 }
 
 /* Form */
