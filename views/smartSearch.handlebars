@@ -1,0 +1,49 @@
+ <section id="smartSearch" class="container">
+    <div class="form-wrap">
+      <h1>Find Things</h1>
+      <p>Use any field by entering a search string.</p>
+      {{#each errors}}
+        <div class="error">
+          <p>Can't search unless you enter a searchable word.</p>
+        </div>
+      {{/each}}
+      <form class="inputForm" action="/catalogs/smartSearch" method="GET">
+        <div class="input-group" >
+          <label for="label">Label</label>
+          <input type="search" name="label" class="input-box" placeholder="What is the name of the thing or how was the thing labelled?"
+            maxlength="100">
+         </div>
+        <div class="input-group" >
+          <label for="status">Status</label>
+          <input type="search" name="status" class="input-box" placeholder="What is the thing's status?"
+            maxlength="100">
+        </div>
+        <div class="input-group" >
+          <label for="condition">Condition</label>
+          <input type="search" name="condition" class="input-box" placeholder="What is the thing's condition?"
+            maxlength="100">
+        </div>
+        <div class="input-group" >
+          <label for="person">Person</label>
+          <input type="search" name="person" class="input-box" placeholder="Who's name is the thing under?"
+            maxlength="100">
+        </div>
+        <div class="input-group">
+          <label for="contact">Contact Email</label>
+          <input type="search" name="contact" class="input-box" placeholder="Who's email is attached to the thing?"
+            maxlength="100">
+        </div>
+        <div class="input-group">
+          <label for="location">Location</label>
+          <input type="search" name="location" class="input-box" placeholder="Where is the thing?"
+            maxlength="100">
+        </div>
+        <div class="input-group">
+          <label for="category">Category</label>
+          <input type="search" name="category" class="input-box" placeholder="What category does the thing belong to?"
+            maxlength="100">
+        </div>
+        <input type="submit" value="Search" class="btn btn-reverse" style="max-width:300px;">
+      </form>
+    </div>
+  </section>
