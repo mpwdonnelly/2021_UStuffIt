@@ -101,16 +101,41 @@ router.get('/search', (req, res) => {
   .catch(err => console.log("Search string error: " + err))
 }); // end search for thing
 
-// dummy search, should just redirect. See above
-router.get('/smartSearch', (req, res) => res.render('search'));
 
-router.get('/search', (req, res) => {
-  let {term} = req.query;
-  // term = term.toLowerCase().trim();
+router.get('/smartSearch', (req, res) => {
 
-  Catalog.findAll({ where: { thing_label: { [Op.iLike]: `%${term}%`}}})
+  // now handle the inputs once user presses SEARCH
+  let { label, status, condition, person, contact, location, category } = req.query;
+
+  Catalog.findAll({ 
+    where: {
+      thing_label: {
+        [Op.iLike]: `%${label}%`
+      },
+      thing_status: {
+        [Op.iLike]: `%${status}%`
+      },
+      thing_condition: {
+        [Op.iLike]: `%${condition}%`
+      },
+      person_role: {
+        [Op.iLike]: `%${person}%`
+      },
+      person_contactInfo: {
+        [Op.iLike]: `%${contact}%`
+      },
+      place_storedIn: {
+        [Op.iLike]: `%${location}%`
+      },
+      category_label: {
+        [Op.iLike]: `%${category}%`
+      },
+    }
+  })
   .then(catalogs => res.render('catalogs', { catalogs }))
   .catch(err => console.log("Search string error: " + err))
+  
+
 }); // end search for thing
 
 

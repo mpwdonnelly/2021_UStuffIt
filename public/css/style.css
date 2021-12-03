@@ -50,6 +50,7 @@ a:hover {
 header {
   display: flex;
   position: absolute;
+  background-color: #333;
   top: 0;
   left: 0;
   width: 100%;
@@ -111,7 +112,11 @@ header.inner {
 
 /* Home Search */
 .search-wrap {
-  background-color: #333;
+  background-color: #333; 
+  background-image: url("/img/attic01.jpg");
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
   padding: 1.3rem 3rem;
@@ -162,6 +167,10 @@ header.inner {
   font-size: 1rem;
   border-radius: 0;
   outline: 0;
+}
+
+.input-group {
+  margin-bottom: 10px;
 }
 
 input[type='search'] {
@@ -256,6 +265,7 @@ label {
 
   .search-wrap {
     padding: 2.3rem;
+    background-image: none;
   }
 
   .catalog ul {
@@ -299,6 +309,10 @@ label {
 
   .form-wrap {
     padding: 1rem 2rem 2rem;
+  }
+
+  .search-wrap {
+    background-image: none;
   }
 
   .form-wrap.reg-form,

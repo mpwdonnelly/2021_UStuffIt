@@ -33,6 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // loads home page
 app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
 
+// loads search page
+app.get('/smartSearch', (req, res) => res.render('smartSearch'));
+
 // Display about page
 app.get('/about', (req, res) => res.render('about'));
 
