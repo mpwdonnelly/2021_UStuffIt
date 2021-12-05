@@ -1,0 +1,78 @@
+
+
+    const puppeteer = require('puppeteer');
+    const path = require('path');
+    const fs = require('fs-extra');
+
+    (async function openPdf(){
+        try {
+
+//Browser variables and launch
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+
+            await page.setContent(this);
+            await page.emulateMediaType('screen');
+
+//Path to create new pdf
+            const pdf = await page.pdf({
+                path: 'PDFfiles/mypdf.pdf',
+                format: 'A4',
+                printBackground: true,
+
+            });
+
+            console.log('done');
+            await browser.close();
+            return pdf
+            process.exit();
+
+        } catch (e) {
+            console.log('our error', e);
+        };
+
+    })();
+
+
+<template>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Print PDF</title>
+</head>
+<body>
+<section id="catalogs" class="container">
+
+
+    <h1>All Things</h1>
+
+    {{#each catalogs}}
+        <div class="catalog">
+            <h3>{{thing_label}}</h3>
+            <h4>{{category_label}}</h4>
+            <ul>
+                <li>Status: {{thing_status}}</li>
+                <li>Condition: {{thing_condition}}</li>
+                <li>Location: {{place_storedIn}}</li>
+                <li>Owner: {{person_role}}</li>
+                <li>Contact: {{person_contactInfo}}</li>
+                <li ><a href="{{artifact_type}}" class="btn btn-reverse">Info</a></li>
+                <li><a href="{{imgLink}}" class="btn btn-reverse">Image</a></li>
+
+                <li><a class="btn btn-reverse" onclick="openPdf()">>Print a thing</a></li>
+            </ul>
+            <p>{{hist_desc}}</p>
+
+        </div>
+    {{else}}
+        <p>No Things in catalog.</p>
+    {{/each}}
+</section>
+</body>
+</html>
+
+</template>

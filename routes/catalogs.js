@@ -6,6 +6,10 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 // router.get('/', (req, res) => res.send('Catalog route checks out 2'));
+router.get('/pdfindex', (req, res) =>
+    Catalog.openPdf()
+        .then(catalogs => res.render('catalogs', { catalogs}))
+        .catch(err => console.log(err)));
 
 // Get catalog
 router.get('/', (req, res) => 
@@ -137,7 +141,6 @@ router.get('/smartSearch', (req, res) => {
   
 
 }); // end search for thing
-
 
 
 module.exports = router;
