@@ -34,6 +34,12 @@ const Catalog = db.define('catalogs', {
   },
   imgLink: {
     type: Sequelize.STRING
+  },
+  moneyValue: {
+    type: Sequelize.STRING
+  },
+  approxSize: {
+    type: Sequelize.STRING
   }
 });
 

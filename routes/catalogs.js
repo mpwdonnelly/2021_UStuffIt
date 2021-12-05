@@ -6,10 +6,10 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 // router.get('/', (req, res) => res.send('Catalog route checks out 2'));
-router.get('/pdfindex', (req, res) =>
-    Catalog.openPdf()
-        .then(catalogs => res.render('catalogs', { catalogs}))
-        .catch(err => console.log(err)));
+// router.get('/pdfindex', (req, res) =>
+//     Catalog.openPdf()
+//         .then(catalogs => res.render('catalogs', { catalogs}))
+//         .catch(err => console.log(err)));
 
 // Get catalog
 router.get('/', (req, res) => 
@@ -35,6 +35,8 @@ router.post('/add', (req, res) => {
     hist_date, 
     artifact_type,
     imgLink,
+    approxSize,
+    moneyValue,
     createdAt,
     updatedAt } = req.body;
 
@@ -88,6 +90,8 @@ router.post('/add', (req, res) => {
       hist_date, 
       artifact_type,
       imgLink,
+      approxSize,
+      moneyValue,
       createdAt,
       updatedAt
     })
