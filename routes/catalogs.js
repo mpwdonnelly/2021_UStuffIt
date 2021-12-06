@@ -27,6 +27,7 @@ router.get('/add', (req, res) => res.render('add'));
 router.get('/update/:id', function (req, res) {
 
   let {id} = req.params;
+  //console.log("updating form with id of " + parseInt({id}));
 
   Catalog.findOne({ 
     where: {
@@ -35,9 +36,10 @@ router.get('/update/:id', function (req, res) {
       }
     }
   }).then(function(catalogs){
-    console.log(catalogs.get({plain:true}))
+    //console.log(catalogs.get({plain:true}))
     res.render('update', {
       catalogs: {
+        id: catalogs.id,
         thing_label: catalogs.thing_label,
         thing_status: catalogs.thing_status,
         thing_condition: catalogs.thing_condition,
@@ -56,45 +58,47 @@ router.get('/update/:id', function (req, res) {
   })
 })
 
-// Update a thing
-router.put('/update', (req, res) => {
-  
-  let { thing_label,
-    thing_status,
-    thing_condition,
-    person_role,
-    person_contactInfo,
-    place_storedIn,
-    category_label,
-    hist_desc,
-    hist_date, 
-    artifact_type,
-    imgLink,
-    approxSize,
-    moneyValue,
-    createdAt,
-    updatedAt } = req.body;
+// router.get('/updateRow/:id', (req, res) => {
 
-    // Insert into table
-    Catalog.put({
-      thing_label,
-      thing_status,
-      thing_condition,
-      person_role,
-      person_contactInfo,
-      place_storedIn,
-      category_label,
-      hist_desc,
-      hist_date, 
-      artifact_type,
-      imgLink,
-      approxSize,
-      moneyValue,
-      createdAt,
-      updatedAt
-    })
-      .then(res.redirect('/catalogs'))
-      .catch(err => console.log(err));
+// })
+
+// Update a thing
+router.get('/updateRow/:id', (req, res) => {
+
+  let {id} = req.params;
+
+//   // Insert into table
+  Catalog.findOne({ 
+    where: {
+      id: {
+        [Op.eq]: parseInt(`${id}`)
+      }
+    }
+  }).then(function(catalogs){
+  Catalog.update({
+    where: {
+      id: {
+        [Op.eq]: parseInt(`${id}`)
+      }
+    },
+      id: catalogs.id,
+      thing_label: catalogs.thing_label,
+      thing_status: catalogs.thing_status,
+      thing_condition: catalogs.thing_condition,
+      hist_desc: catalogs.hist_desc,
+      place_storedIn: catalogs.place_storedIn,
+      category_label: catalogs.category_label,
+      moneyValue: catalogs.moneyValue,
+      approxSize: catalogs.approxSize,
+      person_role: catalogs.person_role,
+      person_contactInfo: catalogs.person_contactInfo,
+      artifact_type: catalogs.artifact_type,
+      imgLink: catalogs.imgLink
+    
+  })
+  })
+.then(res.redirect('/catalogs'))
+.catch(err => console.log(err));
 })
 
 
