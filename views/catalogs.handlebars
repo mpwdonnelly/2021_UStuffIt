@@ -13,9 +13,11 @@
         <li>Location: {{place_storedIn}}</li>
         <li>Owner: {{person_role}}</li>
         <li>Contact: {{person_contactInfo}}</li>
-        <li ><a href="{{artifact_type}}" class="btn btn-reverse">Info</a></li>
+        <li style="display:none" id="catalogId" value={{id}}>{{id}}</li>
+        <li><a href="{{artifact_type}}" class="btn btn-reverse">Info</a></li>
         <li><a href="{{imgLink}}" class="btn btn-reverse">Image</a></li>
-        <li><a href="" class="btn btn-reverse" onclick="'/pdf'">Print a thing</a></li>
+        <li><a href="" class="btn btn-reverse" onclick="'/pdf'">Print</a></li>
+        <li><a href="/catalogs/update/{{id}}" class="btn btn-reverse">Update</a></li>
       </ul>
       <p>{{hist_desc}}</p>
 
@@ -24,4 +26,3 @@
       <p>No Things in catalog.</p>
   {{/each}}
   </section>
-  
