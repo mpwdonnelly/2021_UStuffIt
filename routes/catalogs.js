@@ -58,49 +58,76 @@ router.get('/update/:id', function (req, res) {
   })
 })
 
-// router.get('/updateRow/:id', (req, res) => {
+//Delete a thing
+router.get('/delete/:id', (req,res) => {
+  let {id} = req.params;
 
-// })
+  Catalog.destroy({
+    where: {
+      id: {
+        [Op.eq]: parseInt(`${id}`)
+      }
+    }
+  })
+  .then(res.redirect('/catalogs'))
+})
+
 
 // Update a thing
 router.get('/updateRow/:id', (req, res) => {
 
   let {id} = req.params;
+    
+  let { thing_label,
+    thing_status,
+    thing_condition,
+    hist_desc,
+    place_storedIn,
+    category_label,
+    moneyValue,
+    approxSize,
+    person_role,
+    person_contactInfo,
+    artifact_type,
+    imgLink
+  } = req.query;
 
-//   // Insert into table
+  // Insert into table
   Catalog.findOne({ 
     where: {
       id: {
         [Op.eq]: parseInt(`${id}`)
       }
     }
-  }).then(function(catalogs){
-  Catalog.update({
-    where: {
-      id: {
-        [Op.eq]: parseInt(`${id}`)
-      }
-    },
-      id: catalogs.id,
-      thing_label: catalogs.thing_label,
-      thing_status: catalogs.thing_status,
-      thing_condition: catalogs.thing_condition,
-      hist_desc: catalogs.hist_desc,
-      place_storedIn: catalogs.place_storedIn,
-      category_label: catalogs.category_label,
-      moneyValue: catalogs.moneyValue,
-      approxSize: catalogs.approxSize,
-      person_role: catalogs.person_role,
-      person_contactInfo: catalogs.person_contactInfo,
-      artifact_type: catalogs.artifact_type,
-      imgLink: catalogs.imgLink
-    
-  })
-  })
-.then(res.redirect('/catalogs'))
-.catch(err => console.log(err));
-})
+  }).then(record => {
+    if (!record) {
+      throw new Error('no record found')
+    }
+    console.log(`retrieved record ${id}`)
 
+    let values = {
+      id,
+      thing_label,
+      thing_status,
+      thing_condition,
+      hist_desc,
+      place_storedIn,
+      category_label,
+      moneyValue,
+      approxSize,
+      person_role,
+      person_contactInfo,
+      artifact_type,
+      imgLink
+    }
+
+    record.update(values).then( updatedRecord => {
+      console.log(`updated record ${id}`)
+    })
+
+  }).then(res.redirect('/catalogs'))
+  .catch(err => console.log(err));
+  }) 
 
 // Add a thing
 router.post('/add', (req, res) => {
