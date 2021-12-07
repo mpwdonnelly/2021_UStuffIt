@@ -8,6 +8,7 @@ const Sequelize = require('sequelize');
 // module.exports = new Sequelize('catalogdb', 'postgres', 'mysql', {
 //   host: 'localhost',
 //   dialect: 'postgres',
+//   quoteIdentifiers: false,
 //   operatorAliases: false,
 
 //   pool: {
@@ -24,7 +25,7 @@ const Sequelize = require('sequelize');
 module.exports = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
   protocol: 'postgres',
-  //quoteIdentifiers: false,
+  quoteIdentifiers: false,
   dialectOptions: {
       ssl: {
           require: true,
