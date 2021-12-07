@@ -15,7 +15,7 @@ const Op = Sequelize.Op;
 //         .catch(err => console.log(err)));
 
 // Get catalog
-router.get('/', (req, res) => 
+router.get('/getAll', (req, res) => 
   Catalog.findAll(
     //{attributes: ['id', 'thing_label', 'thing_status', 'thing_condition', 'person_role' , 'person_contactInfo', 'place_storedin', 'category_label', 'hist_desc', 'hist_date', 'artifact_type', 'imgLink', 'createdat', 'updatedat', 'moneyvalue', 'approxsize']}
   )
@@ -72,7 +72,7 @@ router.get('/delete/:id', (req,res) => {
       }
     }
   })
-  .then(res.redirect('/catalogs'))
+  .then(res.redirect('/catalogs/getAll'))
 })
 
 
@@ -128,7 +128,7 @@ router.get('/updateRow/:id', (req, res) => {
       console.log(`updated record ${id}`)
     })
 
-  }).then(res.redirect('/catalogs'))
+  }).then(res.redirect('/catalogs/getAll'))
   .catch(err => console.log(err));
   }) 
 
@@ -206,7 +206,7 @@ router.post('/add', (req, res) => {
       createdAt,
       updatedAt
     })
-      .then(catalogs => res.redirect('/catalogs'))
+      .then(catalogs => res.redirect('/catalogs/getAll'))
       .catch(err => console.log(err));
   
 }); // end add thing
