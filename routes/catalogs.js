@@ -17,7 +17,7 @@ const Op = Sequelize.Op;
 // Get catalog
 router.get('/', (req, res) => 
   Catalog.findAll(
-    //{attributes: ['id', 'thing_label', 'thing_status', 'thing_condition', 'person_role' , 'person_contactInfo', 'place_storedIn', 'category_label', 'hist_desc', 'hist_date', 'artifact_type', 'imgLink', 'createdAt', 'updatedAt', 'moneyvalue', 'approxsize']}
+    {attributes: ['id', 'thing_label', 'thing_status', 'thing_condition', 'person_role' , 'person_contactInfo', 'place_storedIn', 'category_label', 'hist_desc', 'hist_date', 'artifact_type', 'imgLink', 'createdAt', 'updatedAt', 'moneyvalue', 'approxsize']}
   )
     .then(catalogs => res.render('catalogs', { catalogs }))
     .catch(err => console.log(err)));
