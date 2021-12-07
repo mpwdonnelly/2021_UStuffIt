@@ -8,6 +8,7 @@ const { JSON } = require('sequelize');
 const Op = Sequelize.Op;
 
 // router.get('/', (req, res) => res.send('Catalog route checks out 2'));
+
 // router.get('/pdfindex', (req, res) =>
 //     Catalog.openPdf()
 //         .then(catalogs => res.render('catalogs', { catalogs}))
