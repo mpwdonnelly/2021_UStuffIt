@@ -8,7 +8,7 @@ const Sequelize = require('sequelize');
 // module.exports = new Sequelize('catalogdb', 'postgres', 'mysql', {
 //   host: 'localhost',
 //   dialect: 'postgres',
-//   quoteIdentifiers: false,
+//   //quoteIdentifiers: false,
 //   operatorAliases: false,
 
 //   pool: {

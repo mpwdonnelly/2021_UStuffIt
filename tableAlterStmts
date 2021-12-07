@@ -1,0 +1,18 @@
+ALTER TABLE catalogs RENAME COLUMN person_contactinfo TO "person_contactInfo";
+ALTER TABLE catalogs RENAME COLUMN place_storedin TO "place_storedIn";
+ALTER TABLE catalogs RENAME COLUMN imglink TO "imgLink";
+ALTER TABLE catalogs RENAME COLUMN createdat TO "createdAt";
+ALTER TABLE catalogs RENAME COLUMN updatedat TO "updatedAt";
+ALTER TABLE catalogs RENAME COLUMN moneyvalue TO "moneyValue";
+ALTER TABLE catalogs RENAME COLUMN approxsize TO "approxSize";
+
+
+
+
+ALTER TABLE catalogs RENAME COLUMN "person_contactInfo" TO person_contactinfo;
+ALTER TABLE catalogs RENAME COLUMN "place_storedIn" TO place_storedin; 
+ALTER TABLE catalogs RENAME COLUMN "imgLink" TO imglink;
+ALTER TABLE catalogs RENAME COLUMN "createdAt" TO createdat;  
+ALTER TABLE catalogs RENAME COLUMN "updatedAt" TO updatedat;
+ALTER TABLE catalogs RENAME COLUMN "approxSize" TO approxsize;
+ALTER TABLE catalogs RENAME COLUMN "moneyValue" TO moneyvalue;

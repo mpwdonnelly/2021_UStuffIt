@@ -15,9 +15,9 @@ const Op = Sequelize.Op;
 //         .catch(err => console.log(err)));
 
 // Get catalog
-router.get('/catalogs', (req, res) => 
+router.get('/', (req, res) => 
   Catalog.findAll(
-    {attributes: ['id', 'thing_label', 'thing_status', 'thing_condition', 'person_role' , 'person_contactinfo', 'place_storedin', 'category_label', 'hist_desc', 'hist_date', 'artifact_type', 'imgLink', 'createdat', 'updatedat', 'moneyvalue', 'approxsize']}
+    //{attributes: ['id', 'thing_label', 'thing_status', 'thing_condition', 'person_role' , 'person_contactInfo', 'place_storedin', 'category_label', 'hist_desc', 'hist_date', 'artifact_type', 'imgLink', 'createdat', 'updatedat', 'moneyvalue', 'approxsize']}
   )
     .then(catalogs => res.render('catalogs', { catalogs }))
     .catch(err => console.log(err)));
@@ -47,14 +47,14 @@ router.get('/update/:id', function (req, res) {
         thing_status: catalogs.thing_status,
         thing_condition: catalogs.thing_condition,
         hist_desc: catalogs.hist_desc,
-        place_storedin: catalogs.place_storedin,
+        place_storedIn: catalogs.place_storedIn,
         category_label: catalogs.category_label,
-        moneyvalue: catalogs.moneyvalue,
-        approxsize: catalogs.approxsize,
+        moneyValue: catalogs.moneyValue,
+        approxSize: catalogs.approxSize,
         person_role: catalogs.person_role,
-        person_contactinfo: catalogs.person_contactinfo,
+        person_contactInfo: catalogs.person_contactInfo,
         artifact_type: catalogs.artifact_type,
-        imglink: catalogs.imglink
+        imgLink: catalogs.imgLink
       }
     })
     return catalogs
@@ -85,14 +85,14 @@ router.get('/updateRow/:id', (req, res) => {
     thing_status,
     thing_condition,
     hist_desc,
-    place_storedin,
+    place_storedIn,
     category_label,
-    moneyvalue,
-    approxsize,
+    moneyValue,
+    approxSize,
     person_role,
-    person_contactinfo,
+    person_contactInfo,
     artifact_type,
-    imglink
+    imgLink
   } = req.query;
 
   // Insert into table
@@ -114,14 +114,14 @@ router.get('/updateRow/:id', (req, res) => {
       thing_status,
       thing_condition,
       hist_desc,
-      place_storedin,
+      place_storedIn,
       category_label,
-      moneyvalue,
-      approxsize,
+      moneyValue,
+      approxSize,
       person_role,
-      person_contactinfo,
+      person_contactInfo,
       artifact_type,
-      imglink
+      imgLink
     }
 
     record.update(values).then( updatedRecord => {
@@ -139,17 +139,17 @@ router.post('/add', (req, res) => {
     thing_status,
     thing_condition,
     person_role,
-    person_contactinfo,
-    place_storedin,
+    person_contactInfo,
+    place_storedIn,
     category_label,
     hist_desc,
     hist_date, 
     artifact_type,
-    imglink,
-    approxsize,
-    moneyvalue,
-    createdat,
-    updatedat } = req.body;
+    imgLink,
+    approxSize,
+    moneyValue,
+    createdAt,
+    updatedAt } = req.body;
 
   // let errors = [];
 
@@ -194,17 +194,17 @@ router.post('/add', (req, res) => {
       thing_status,
       thing_condition,
       person_role,
-      person_contactinfo,
-      place_storedin,
+      person_contactInfo,
+      place_storedIn,
       category_label,
       hist_desc,
       hist_date, 
       artifact_type,
-      imglink,
-      approxsize,
-      moneyvalue,
-      createdat,
-      updatedat
+      imgLink,
+      approxSize,
+      moneyValue,
+      createdAt,
+      updatedAt
     })
       .then(catalogs => res.redirect('/catalogs'))
       .catch(err => console.log(err));
@@ -240,10 +240,10 @@ router.get('/smartSearch', (req, res) => {
       person_role: {
         [Op.iLike]: `%${person}%`
       },
-      person_contactinfo: {
+      person_contactInfo: {
         [Op.iLike]: `%${contact}%`
       },
-      place_storedin: {
+      place_storedIn: {
         [Op.iLike]: `%${location}%`
       },
       category_label: {
