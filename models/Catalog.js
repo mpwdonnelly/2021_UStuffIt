@@ -14,10 +14,10 @@ const Catalog = db.define('catalogs', {
   person_role: {
     type: Sequelize.STRING
   },
-  person_contactInfo: {
+  person_contactinfo: {
     type: Sequelize.STRING
   },
-  place_storedIn: {
+  place_storedin: {
     type: Sequelize.STRING
   },
   category_label: {
@@ -32,13 +32,13 @@ const Catalog = db.define('catalogs', {
   artifact_type: {
     type: Sequelize.STRING
   },
-  imgLink: {
+  imglink: {
     type: Sequelize.STRING
   },
-  moneyValue: {
+  moneyvalue: {
     type: Sequelize.STRING
   },
-  approxSize: {
+  approxsize: {
     type: Sequelize.STRING
   }
 });
