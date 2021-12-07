@@ -15,7 +15,7 @@ const Op = Sequelize.Op;
 //         .catch(err => console.log(err)));
 
 // Get catalog
-router.get('/', (req, res) => 
+router.get('/getAll', (req, res) => 
   Catalog.findAll(
     //{attributes: ['id', 'thing_label', 'thing_status', 'thing_condition', 'person_role' , 'person_contactInfo', 'place_storedin', 'category_label', 'hist_desc', 'hist_date', 'artifact_type', 'imgLink', 'createdat', 'updatedat', 'moneyvalue', 'approxsize']}
   )
