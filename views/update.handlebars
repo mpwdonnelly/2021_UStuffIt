@@ -10,51 +10,63 @@
       <form class="inputForm" action='/catalogs/updateRow/{{catalogs.id}}' method="GET">
         <div class="input-group">
           <label for="thing_label">Label</label>
-          <input type="text" name="thing_label" id="thing_label" class="input-box" maxlength="100" value="{{catalogs.thing_label}}">
+          <input type="text" name="thing_label" id="thing_label" class="input-box" placeholder="Red Royal Typewriter, Little Elmo Doll, etc."
+            maxlength="100" value="{{catalogs.thing_label}}">
         </div>
         <div class="input-group">
           <label for="thing_status">Status</label>
-          <input type="text" name="thing_status" id="thing_status" class="input-box" maxlength="100" value="{{catalogs.thing_status}}">
+          <input type="text" name="thing_status" id="thing_status" class="input-box" placeholder="In storage, on display, under repair, etc."
+            maxlength="100" value="{{catalogs.thing_status}}">
         </div>
         <div class="input-group">
           <label for="thing_condition">Condition</label>
-          <input type="text" name="thing_condition" id="thing_condition" class="input-box" value="{{catalogs.thing_condition}}">
+          <input type="text" name="thing_condition" id="thing_condition" class="input-box" 
+            placeholder="Excellent, Fair, Poor, etc" value="{{catalogs.thing_condition}}">
         </div>
         <div class="input-group">
           <label for="hist_desc">History/Description</label>
-          <textarea name="hist_desc" id="hist_desc" class="input-box"rows="10">{{catalogs.hist_desc}}</textarea>
+          <textarea name="hist_desc" id="hist_desc" class="input-box" placeholder="Describe this thing in sufficient detail here, including any important history, and your relation to it."
+            rows="10">{{catalogs.hist_desc}}</textarea>
         </div>
         <div class="input-group">
           <label for="place_storedIn">Location</label>
-          <input type="text" name="place_storedIn" id="place_storedIn" class="input-box" value="{{catalogs.place_storedIn}}">
+          <input type="text" name="place_storedIn" id="place_storedIn" class="input-box"
+            placeholder="Where can this thing be found?" value="{{catalogs.place_storedIn}}">
         </div>
         <div class="input-group">
           <label for="category_label">Category(s)</label>
-          <input type="text" name="category_label" id="category_label" class="input-box" value="{{catalogs.category_label}}">
+          <input type="text" name="category_label" id="category_label" class="input-box"
+            placeholder="What category(s) does this thing belong to?" value="{{catalogs.category_label}}">
         </div>
           <div class="input-group">
           <label for="moneyValue">Estimated Monetary Value</label>    <!-- NEW moneyValue form field -->
-          <input type="text" name="moneyValue" id="moneyValue" class="input-box" value="{{catalogs.moneyValue}}">
+          <input type="text" name="moneyValue" id="moneyValue" class="input-box" 
+            placeholder="What is the approximate or confirmed worth of the thing?" value="{{catalogs.moneyValue}}">
         </div>
           <div class="input-group">
           <label for="approxSize">Approximate Size</label>    <!-- NEW approxSize form field -->
-          <input type="text" name="approxSize" id="approxSize" class="input-box" value="{{catalogs.approxSize}}">
+          <input type="text" name="approxSize" id="approxSize" class="input-box" 
+            placeholder="What is the approximate size of the thing?" value="{{catalogs.approxSize}}">
         </div>
         <div class="input-group">
           <label for="person_role">Owner(s), Claimant(s), other interested parties</label>
-          <input type="text" name="person_role" id="person_role" class="input-box" value="{{catalogs.person_role}}">
+          <input type="text" name="person_role" id="person_role" class="input-box" 
+            placeholder="Who does this thing belong to?" value="{{catalogs.person_role}}">
         </div>
         <div class="input-group">
           <label for="person_contactInfo">Contact E-Mail</label>
-          <input type="text" name="person_contactInfo" id="person_contactInfo" class="input-box" value="{{catalogs.person_contactInfo}}">
+          <input type="text" name="person_contactInfo" id="person_contactInfo" class="input-box" 
+            placeholder="Enter the email of the primary person who owns this thing" value="{{catalogs.person_contactInfo}}">
         </div>
         <div class="input-group">
           <label for="artifact_type">Information Link</label>
-          <input type="text" name="artifact_type" id="artifact_type" class="input-box" value="{{catalogs.artifact_type}}">
+          <input type="text" name="artifact_type" id="artifact_type" class="input-box"
+            placeholder="You can put a link here to an informative web page about the thing." value="{{catalogs.artifact_type}}">
         </div>
         <div class="input-group">
           <label for="imgLink">Image Link</label>
-          <input type="text" name="imgLink" id="imgLink" class="input-box" value="{{catalogs.imgLink}}">
+          <input type="text" name="imgLink" id="imgLink" class="input-box" 
+            placeholder="Put a link here to an image of the thing." value="{{catalogs.imgLink}}">
           <input style="display:none" name="id" id="id" value="{{catalogs.id}}">
         </div>
         <input type="submit" value="Update Thing" class="btn btn-reverse">
