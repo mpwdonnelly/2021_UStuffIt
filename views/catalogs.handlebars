@@ -1,29 +1,34 @@
 <section id="catalogs" class="container">
-    <script></script>
 
   <h1>All Things</h1>
 
   {{#each catalogs}}
     <div class="catalog">
-      <h3>{{thing_label}}</h3>
-      <h4>{{category_label}}</h4>
+      <h3><span style="color: #14b94b;">Label: </span>{{thing_label}}</h3>
+      <h4><span style="color: #14b94b;">Category: </span>{{category_label}}</h4>
       <ul>
         <li>Status: {{thing_status}}</li>
         <li>Condition: {{thing_condition}}</li>
         <li>Location: {{place_storedIn}}</li>
         <li>Owner: {{person_role}}</li>
-        <li><a href="mailto:{{person_contactInfo}}">Contact: {{person_contactInfo}}</a></li>
+        <li><a href="mailto:{{person_contactInfo}}">Contact: {{person_contactInfo}}</a></li><br>
         <li style="display:none" id="catalogId" value={{id}}>{{id}}</li>
         <li><a href="{{artifact_type}}" class="btn btn-reverse">Info</a></li>
+        {{#if imgLink}}
         <li><a href="{{imgLink}}" class="btn btn-reverse">Image</a></li>
+        {{/if}}
         <li><a href="/catalogs/update/{{id}}" class="btn btn-reverse">Edit</a></li>
         <li><a href="/catalogs/delete/{{id}}" class="btn btn-reverse">Delete</a></li>
       </ul>
       <p>{{hist_desc}}</p>
-
+      {{#if imgLink}}
+      <img src={{imgLink}} style="max-height: 150px; max-width: 150px;"></li>
+      {{/if}}
+      <br>
+      <!--<button class="btn btn-reverse" style="margin-top: 1rem;" id="{{id}}">Show Details</button>-->
     </div>
   {{else}}
-      <p>No Things in catalog.</p>
+      <p>No Things in catalog.</p> 
   {{/each}}
   </section>
 
