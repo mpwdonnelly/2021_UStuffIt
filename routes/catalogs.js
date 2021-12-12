@@ -113,7 +113,7 @@ router.get('/smartSearch', (req, res) => {
 // *************** UPDATE ROUTES *******************
 // *************************************************
 
-// DISPLAY AND UPDATE THING FORM TO PREPARE FOR UPDATING 
+// DISPLAY AND UPDATE THING FORM WITH SPECIFIC THING ATTRIBUTES TO PREPARE FOR EDITING 
 router.get('/update/:id', function (req, res) {
 
   let {id} = req.params;
