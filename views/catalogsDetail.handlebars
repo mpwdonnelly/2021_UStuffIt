@@ -1,28 +1,31 @@
 <section id="catalogsDetail" class="container">
 
-  <h1>Thing Details</h1>
+    <h1>Thing Details</h1>
     <div class="catalog">
-      <h3><span style="color: #14b94b;">Label: </span>{{catalogs.thing_label}}</h3>
-      <h4><span style="color: #14b94b;">Category: </span>{{catalogs.category_label}}</h4>
-      <ul>
-        <li>Status: {{catalogs.thing_status}}</li>
-        <li>Condition: {{catalogs.thing_condition}}</li>
-        <li>Location: {{catalogs.place_storedIn}}</li>
-        <li>Owner: {{catalogs.person_role}}</li>
-        <li><a href="mailto:{{catalogs.person_contactInfo}}">Contact: {{catalogs.person_contactInfo}}</a></li><br>
-        <li style="display:none" id="catalogId" value={{catalogs.id}}>{{catalogs.id}}</li>
-        <li><a href="{{catalogs.artifact_type}}" class="btn btn-reverse">Info</a></li>
+        <h3><span style="color: #14b94b;">Label: </span>{{catalogs.thing_label}}</h3>
+        <h4><span style="color: #14b94b;">Category: </span>{{catalogs.category_label}}</h4>
+        <ol style="list-style:none;">
+            <li>Status: {{catalogs.thing_status}}</li>
+            <li>Condition: {{catalogs.thing_condition}}</li>
+            <li>Stored In: {{catalogs.place_storedIn}}</li>
+            <li>Location: {{catalogs.place_storedIn}}</li>
+            <li>Value: {{catalogs.moneyValue}}</li>
+            <li>Approximate Size: {{catalogs.approxSize}}</li>
+            <li>Owner: {{catalogs.person_role}}</li>
+            <li><a href="mailto:{{catalogs.person_contactInfo}}">Contact: {{catalogs.person_contactInfo}}</a></li>
+            <!--<li style="display:none" id="catalogId" value={{catalogs.id}}>{{catalogs.id}}</li>-->
+        </ol>
+        <p>{{catalogs.hist_desc}}</p>
         {{#if catalogs.imgLink}}
-        <li><a href="{{catalogs.imgLink}}" class="btn btn-reverse">Image</a></li>
+        <img src={{catalogs.imgLink}} style="max-height: 150px; max-width: 150px;"></li>
         {{/if}}
-        <li><a href="/catalogs/update/{{catalogs.id}}" class="btn btn-reverse">Edit</a></li>
-        <li><a href="/catalogs/delete/{{catalogs.id}}" class="btn btn-reverse">Delete</a></li>
-        <li><a href="/catalogs/getAll" class="btn btn-reverse">Back</a></li>
-      </ul>
-      <p>{{catalogs.hist_desc}}</p>
-      {{#if catalogs.imgLink}}
-      <img src={{catalogs.imgLink}} style="max-height: 150px; max-width: 150px;"></li>
-      {{/if}}
-      <br>
+        <br>
+        <br>
+        <br>
+        <a href="/catalogs/update/{{catalogs.id}}" class="btn btn-reverse">Edit</a>
+        <a href="/catalogs/delete/{{catalogs.id}}" class="btn btn-reverse">Delete</a>
+        <a href="{{catalogs.artifact_type}}" class="btn btn-reverse">Info</a>
+        <a href="/catalogs/getAll" class="btn btn-reverse">Back</a>
+        <br>
     </div>
-  </section>
+</section>
