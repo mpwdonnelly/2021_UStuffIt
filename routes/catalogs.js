@@ -7,30 +7,116 @@ const { json } = require('body-parser');
 const { JSON } = require('sequelize');
 const Op = Sequelize.Op;
 
-// router.get('/', (req, res) => res.send('Catalog route checks out 2'));
 
-// router.get('/pdfindex', (req, res) =>
-//     Catalog.openPdf()
-//         .then(catalogs => res.render('catalogs', { catalogs}))
-//         .catch(err => console.log(err)));
-
-// Get catalog
-router.get('/getAll', (req, res) => 
-  Catalog.findAll(
-    //{attributes: ['id', 'thing_label', 'thing_status', 'thing_condition', 'person_role' , 'person_contactInfo', 'place_storedin', 'category_label', 'hist_desc', 'hist_date', 'artifact_type', 'imgLink', 'createdat', 'updatedat', 'moneyvalue', 'approxsize']}
-  )
-    .then(catalogs => res.render('catalogs', { catalogs }))
-    .catch(err => console.log(err)));
-
+// *************************************************
+// ********** PURE PAGE RENDER ROUTES **************
+// *************************************************
 
 // Display add thing form
 router.get('/add', (req, res) => res.render('add'));
+//-----------------------------------------------------------------------------------END OF ROUTE
 
-// Display & update thing form for updating
+
+// *************************************************
+// ************** PURE GET ROUTES ******************
+// *************************************************
+
+// GET ALL CATALOGS (THINGS)
+router.get('/getAll', (req, res) => 
+  Catalog.findAll()
+    .then(catalogs => res.render('catalogs', { catalogs }))
+    .catch(err => console.log(err)));
+//-----------------------------------------------------------------------------------END OF ROUTE
+
+
+// GET DETAILED CATALOG (THING) VIEW 
+router.get('/getOne/:id', (req,res) => {
+  let {id} = req.params;
+
+  Catalog.findOne({
+    where: {
+      id: {
+        [Op.eq]: parseInt(`${id}`)
+      }
+    }
+  })
+  .then(catalogs => res.render('catalogsDetail', { catalogs }))
+})
+//------------------------------------------------------------------------------------END OF ROUTE
+
+
+// GLOBAL HOME PAGE SEARCH FOR THING 
+router.get('/search', (req, res) => {
+  let {term} = req.query;
+
+  Catalog.findAll({ 
+    where: { 
+      [Op.or]: 
+        [{thing_label: { [Op.iLike]: `%${term}%`}}, 
+        {thing_status: { [Op.iLike]: `%${term}%`}},
+        {thing_condition: { [Op.iLike]: `%${term}%`}},
+        {person_role: { [Op.iLike]: `%${term}%`}},
+        {person_contactInfo: { [Op.iLike]: `%${term}%`}},
+        {place_storedIn: { [Op.iLike]: `%${term}%`}},
+        {category_label: { [Op.iLike]: `%${term}%`}},
+        {hist_desc: { [Op.iLike]: `%${term}%`}},       
+        {hist_date: { [Op.iLike]: `%${term}%`}},
+        {artifact_type: { [Op.iLike]: `%${term}%`}},
+        {imgLink: { [Op.iLike]: `%${term}%`}},
+        {moneyValue: { [Op.iLike]: `%${term}%`}},
+        {approxSize: { [Op.iLike]: `%${term}%`}}
+      ]}})
+  .then(catalogs => res.render('catalogs', { catalogs }))
+  .catch(err => console.log("Search string error: " + err))
+});
+//-----------------------------------------------------------------------------------END OF ROUTE
+
+
+// SMART SEARCH FOR "ADVANCED SEARCH" PAGE 
+router.get('/smartSearch', (req, res) => {
+
+  // now handle the inputs once user presses SEARCH
+  let { label, status, condition, person, contact, location, category } = req.query;
+
+  Catalog.findAll({ 
+    where: {
+      thing_label: {
+        [Op.iLike]: `%${label}%`
+      },
+      thing_status: {
+        [Op.iLike]: `%${status}%`
+      },
+      thing_condition: {
+        [Op.iLike]: `%${condition}%`
+      },
+      person_role: {
+        [Op.iLike]: `%${person}%`
+      },
+      person_contactInfo: {
+        [Op.iLike]: `%${contact}%`
+      },
+      place_storedIn: {
+        [Op.iLike]: `%${location}%`
+      },
+      category_label: {
+        [Op.iLike]: `%${category}%`
+      },
+    }
+  })
+  .then(catalogs => res.render('catalogs', { catalogs }))
+  .catch(err => console.log("Search string error: " + err))
+});
+//-----------------------------------------------------------------------------------END OF ROUTE
+
+
+// *************************************************
+// *************** UPDATE ROUTES *******************
+// *************************************************
+
+// DISPLAY AND UPDATE THING FORM TO PREPARE FOR UPDATING 
 router.get('/update/:id', function (req, res) {
 
   let {id} = req.params;
-  //console.log("updating form with id of " + parseInt({id}));
 
   Catalog.findOne({ 
     where: {
@@ -39,7 +125,6 @@ router.get('/update/:id', function (req, res) {
       }
     }
   }).then(function(catalogs){
-    //console.log(catalogs.get({plain:true}))
     res.render('update', {
       catalogs: {
         id: catalogs.id,
@@ -60,23 +145,10 @@ router.get('/update/:id', function (req, res) {
     return catalogs
   })
 })
-
-//Delete a thing
-router.get('/delete/:id', (req,res) => {
-  let {id} = req.params;
-
-  Catalog.destroy({
-    where: {
-      id: {
-        [Op.eq]: parseInt(`${id}`)
-      }
-    }
-  })
-  .then(res.redirect('/catalogs/getAll'))
-})
+//-----------------------------------------------------------------------------------END OF ROUTE
 
 
-// Update a thing
+// UPDATE A THING 
 router.get('/updateRow/:id', (req, res) => {
 
   let {id} = req.params;
@@ -130,9 +202,35 @@ router.get('/updateRow/:id', (req, res) => {
 
   }).then(res.redirect('/catalogs/getAll'))
   .catch(err => console.log(err));
-  }) 
+  })
+//-----------------------------------------------------------------------------------END OF ROUTE
 
-// Add a thing
+
+// *************************************************
+// *************** DELETE ROUTES *******************
+// *************************************************
+
+// DELETE A THING 
+router.get('/delete/:id', (req,res) => {
+  let {id} = req.params;
+
+  Catalog.destroy({
+    where: {
+      id: {
+        [Op.eq]: parseInt(`${id}`)
+      }
+    }
+  })
+  .then(res.redirect('/catalogs/getAll'))
+})
+//-----------------------------------------------------------------------------------END OF ROUTE
+
+
+// *************************************************
+// **************** POST ROUTES ********************
+// *************************************************
+
+// ADD A THING 
 router.post('/add', (req, res) => {
 
   let { thing_label,
@@ -209,69 +307,8 @@ router.post('/add', (req, res) => {
       .then(catalogs => res.redirect('/catalogs/getAll'))
       .catch(err => console.log(err));
   
-}); // end add thing
-
-router.get('/search', (req, res) => {
-  let {term} = req.query;
-  // term = term.toLowerCase().trim();
-
-  Catalog.findAll({ 
-    where: { 
-      [Op.or]: 
-        [{thing_label: { [Op.iLike]: `%${term}%`}}, 
-        {thing_status: { [Op.iLike]: `%${term}%`}},
-        {thing_condition: { [Op.iLike]: `%${term}%`}},
-        {person_role: { [Op.iLike]: `%${term}%`}},
-        {person_contactInfo: { [Op.iLike]: `%${term}%`}},
-        {place_storedIn: { [Op.iLike]: `%${term}%`}},
-        {category_label: { [Op.iLike]: `%${term}%`}},
-        {hist_desc: { [Op.iLike]: `%${term}%`}},       
-        {hist_date: { [Op.iLike]: `%${term}%`}},
-        {artifact_type: { [Op.iLike]: `%${term}%`}},
-        {imgLink: { [Op.iLike]: `%${term}%`}},
-        {moneyValue: { [Op.iLike]: `%${term}%`}},
-        {approxSize: { [Op.iLike]: `%${term}%`}}
-      ]}})
-  .then(catalogs => res.render('catalogs', { catalogs }))
-  .catch(err => console.log("Search string error: " + err))
-}); // end search for thing
-
-
-router.get('/smartSearch', (req, res) => {
-
-  // now handle the inputs once user presses SEARCH
-  let { label, status, condition, person, contact, location, category } = req.query;
-
-  Catalog.findAll({ 
-    where: {
-      thing_label: {
-        [Op.iLike]: `%${label}%`
-      },
-      thing_status: {
-        [Op.iLike]: `%${status}%`
-      },
-      thing_condition: {
-        [Op.iLike]: `%${condition}%`
-      },
-      person_role: {
-        [Op.iLike]: `%${person}%`
-      },
-      person_contactInfo: {
-        [Op.iLike]: `%${contact}%`
-      },
-      place_storedIn: {
-        [Op.iLike]: `%${location}%`
-      },
-      category_label: {
-        [Op.iLike]: `%${category}%`
-      },
-    }
-  })
-  .then(catalogs => res.render('catalogs', { catalogs }))
-  .catch(err => console.log("Search string error: " + err))
-  
-
-}); // end search for thing
+});
+//-----------------------------------------------------------------------------------END OF ROUTE
 
 
 module.exports = router;
