@@ -215,7 +215,23 @@ router.get('/search', (req, res) => {
   let {term} = req.query;
   // term = term.toLowerCase().trim();
 
-  Catalog.findAll({ where: { thing_label: { [Op.iLike]: `%${term}%`}}})
+  Catalog.findAll({ 
+    where: { 
+      [Op.or]: 
+        [{thing_label: { [Op.iLike]: `%${term}%`}}, 
+        {thing_status: { [Op.iLike]: `%${term}%`}},
+        {thing_condition: { [Op.iLike]: `%${term}%`}},
+        {person_role: { [Op.iLike]: `%${term}%`}},
+        {person_contactInfo: { [Op.iLike]: `%${term}%`}},
+        {place_storedIn: { [Op.iLike]: `%${term}%`}},
+        {category_label: { [Op.iLike]: `%${term}%`}},
+        {hist_desc: { [Op.iLike]: `%${term}%`}},       
+        {hist_date: { [Op.iLike]: `%${term}%`}},
+        {artifact_type: { [Op.iLike]: `%${term}%`}},
+        {imgLink: { [Op.iLike]: `%${term}%`}},
+        {moneyValue: { [Op.iLike]: `%${term}%`}},
+        {approxSize: { [Op.iLike]: `%${term}%`}}
+      ]}})
   .then(catalogs => res.render('catalogs', { catalogs }))
   .catch(err => console.log("Search string error: " + err))
 }); // end search for thing
