@@ -39,6 +39,9 @@ app.get('/smartSearch', (req, res) => res.render('smartSearch'));
 // Display about page
 app.get('/about', (req, res) => res.render('about'));
 
+// Display user guide
+app.get('/instructions', (req, res) => res.render('instructions'));
+
 // for routes: use routes/catalogs.js
 app.use('/catalogs', require('./routes/catalogs'));
 

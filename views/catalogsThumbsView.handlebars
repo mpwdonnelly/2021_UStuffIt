@@ -1,0 +1,63 @@
+<section id="catalogs" class="container">
+
+  <div style="display:inline-flex;height:40px;vertical-align:middle;margin-bottom:20px">
+    <h1 style="width:300px;position:relative;vertical-align:top">All Things</h1>
+    <button style="width:120px;height:40px;margin-right:10px;background-color:gray">Cards View</button>
+    <button style="width:120px;height:40px;margin-right:10px;background-color:gray">List View</button>
+    <button style="width:120px;height:40px;margin-right:10px;background-color:#14b94b">Thumbs View</button>
+  </div>
+
+
+  {{#each catalogs}}
+    <div class="catalog">
+      <h3><span style="color: #14b94b;">Label: </span>{{thing_label}}</h3>
+      <h4><span style="color: #14b94b;">Category: </span>{{category_label}}</h4>
+      <ul>
+        {{#if thing_status}}
+        <li>Status: {{thing_status}}</li>
+        {{else}}
+        <li>Status: <span style="color:red;">None</span></li>
+        {{/if}}
+        {{#if thing_condition}}
+        <li>Condition: {{thing_condition}}</li>
+        {{else}}
+        <li>Condition: <span style="color:red;">None</span></li>
+        {{/if}}
+        {{#if place_storedIn}}
+        <li>Location: {{place_storedIn}}</li>
+        {{else}}
+        <li>Location: <span style="color:red;">None</span></li>
+        {{/if}}
+        {{#if person_role}}
+        <li>Owner: {{person_role}}</li>
+        {{else}}
+        <li>Owner: <span style="color:red;">None</span></li>
+        {{/if}}
+        {{#if person_contactInfo}}
+        <li><a href="mailto:{{person_contactInfo}}">Contact: {{person_contactInfo}}</a></li><br>
+        {{else}}
+        <li>Contact: <span style="color:red;">None</span></li>
+        {{/if}}
+        <!--<li style="display:none" id="catalogId" value={{id}}>{{id}}</li>-->
+        <li><a href="{{artifact_type}}" class="btn btn-reverse">Info</a></li>
+        {{#if imgLink}}
+        <li><a href="{{imgLink}}" class="btn btn-reverse">Image</a></li>
+        {{/if}}
+        <li><a href="/catalogs/getOne/{{id}}" class="btn btn-reverse">Details</a></li>
+        <li><a href="/catalogs/update/{{id}}" class="btn btn-reverse">Edit</a></li>
+        <li><a href="/catalogs/delete/{{id}}" class="btn btn-reverse" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a></li>
+      </ul>
+      <p>{{hist_desc}}</p>
+      {{#if imgLink}}
+      <a href={{imgLink}}><img src={{imgLink}} style="max-height: 150px; max-width: 150px;"></li></a>
+      {{/if}}
+      <br>
+      <!--<button class="btn btn-reverse" style="margin-top: 1rem;" id="{{id}}">Show Details</button>-->
+    </div>
+  {{else}}
+      <p>No Things in catalog.</p> 
+  {{/each}}
+  </section>
+
+
+<!-- INVESTIGATE HTML <details> TAB FOR CREATING TRUNCATED VS FULL LISTS - OR SYTLE VIA CSS -->

@@ -28,6 +28,20 @@ router.get('/getAll', (req, res) =>
     .catch(err => console.log(err)));
 //-----------------------------------------------------------------------------------END OF ROUTE
 
+// GET ALL CATALOGS (THINGS)
+router.get('/getAllList', (req, res) => 
+  Catalog.findAll()
+    .then(catalogs => res.render('catalogsListView', { catalogs }))
+    .catch(err => console.log(err)));
+//-----------------------------------------------------------------------------------END OF ROUTE
+
+// GET ALL CATALOGS (THINGS)
+router.get('/getAllThumbs', (req, res) => 
+  Catalog.findAll()
+    .then(catalogs => res.render('catalogsThumbsView', { catalogs }))
+    .catch(err => console.log(err)));
+//-----------------------------------------------------------------------------------END OF ROUTE
+
 
 // GET DETAILED CATALOG (THING) VIEW 
 router.get('/getOne/:id', (req,res) => {
