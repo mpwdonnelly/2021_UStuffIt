@@ -2,28 +2,74 @@
 
     <h1>Thing Details</h1>
     <div class="catalog">
-        <h3><span style="color: #14b94b;">Label: </span>{{catalogs.thing_label}}</h3>
-        <h4><span style="color: #14b94b;">Category: </span>{{catalogs.category_label}}</h4>
-        <ol style="list-style:none;">
-            <li>Status: {{catalogs.thing_status}}</li>
-            <li>Condition: {{catalogs.thing_condition}}</li>
-            <li>Stored In: {{catalogs.place_storedIn}}</li>
-            <li>Location: {{catalogs.place_storedIn}}</li>
-            <li>Value: {{catalogs.moneyValue}}</li>
-            <li>Approximate Size: {{catalogs.approxSize}}</li>
-            <li>Owner: {{catalogs.person_role}}</li>
-            <li><a href="mailto:{{catalogs.person_contactInfo}}">Contact: {{catalogs.person_contactInfo}}</a></li>
-            <!--<li style="display:none" id="catalogId" value={{catalogs.id}}>{{catalogs.id}}</li>-->
-        </ol>
-        <p>{{catalogs.hist_desc}}</p>
+        {{#if catalogs.thing_label}}
+            <p><span class="greenLabel">Label: </span>{{catalogs.thing_label}}</p>
+        {{else}}
+            <p><span class="greenLabel">Label: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.category_label}}
+            <p><span class="greenLabel">Category: </span>{{catalogs.category_label}}</p>
+        {{else}}
+            <p><span class="greenLabel">Category: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.thing_status}}
+            <p><span class="greenLabel">Status: </span>{{catalogs.thing_status}}</p>
+        {{else}}
+            <p><span class="greenLabel">Status: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.thing_condition}}
+            <p><span class="greenLabel">Condition: </span>{{catalogs.thing_condition}}</p>
+        {{else}}
+            <p><span class="greenLabel">Condition: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.place_storedIn}}
+            <p><span class="greenLabel">Location: </span>{{catalogs.place_storedIn}}</p>
+        {{else}}
+            <p><span class="greenLabel">Location: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.moneyValue}}
+            <p><span class="greenLabel">Value: </span>{{catalogs.moneyValue}}</p>
+        {{else}}
+            <p><span class="greenLabel">Value: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.approxSize}}
+            <p><span class="greenLabel">Approximate Size: </span>{{catalogs.approxSize}}</p>
+        {{else}}
+            <p><span class="greenLabel">Approximate Size: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.person_role}}
+            <p><span class="greenLabel">Owner: </span>{{catalogs.person_role}}</p>
+        {{else}}
+            <p><span class="greenLabel">Owner: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.person_contactInfo}}
+            <p><a href="mailto:{{catalogs.person_contactInfo}}"><span class="greenLabel">Contact: </span>{{catalogs.person_contactInfo}}</a></p>
+        {{else}}
+            <p><span class="greenLabel">Contact: </span><span class="redNoneDetail">None</span></p>
+        {{/if}}
+
+        {{#if catalogs.hist_desc}}
+            <p><span class="greenLabel">Description: </span>{{catalogs.hist_desc}}</p>
+        {{else}}
+            <p><span class="greenLabel">Description: </span><span class="redNoneDetail">No description entered.</span></p>
+        {{/if}}
+        <br>
         {{#if catalogs.imgLink}}
-        <img src={{catalogs.imgLink}} style="max-height: 150px; max-width: 150px;"></li>
+            <img src={{catalogs.imgLink}} style="max-height: 500px; max-width: 500px;">
         {{/if}}
         <br>
         <br>
         <br>
         <a href="/catalogs/update/{{catalogs.id}}" class="btn btn-reverse">Edit</a>
-        <a href="/catalogs/delete/{{catalogs.id}}" class="btn btn-reverse">Delete</a>
+        <a href="/catalogs/delete/{{catalogs.id}}" class="btn btn-reverse" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
         <a href="{{catalogs.artifact_type}}" class="btn btn-reverse">Info</a>
         <a href="/catalogs/getAll" class="btn btn-reverse">Back</a>
         <br>
