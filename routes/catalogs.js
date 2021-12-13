@@ -249,42 +249,20 @@ router.post('/add', (req, res) => {
     createdAt,
     updatedAt } = req.body;
 
-  // let errors = [];
+  let errorMsgs = [];
 
-// // do some validation
-// TODO: Need to change all this to make it appropriate for our data
-//   if(!title) {
-//     errors.push({text: 'Please add a title'});
-//   }
-//   if(!technologies) {
-//     errors.push({text: 'Please add technologies'});
-//   }
-//   if(!description) {
-//     errors.push({text: 'Please add a description'});
-//   }
-//   if(!contact_email) {
-//     errors.push({text: 'Please add a contact email'});
-//   }
+  // Required field validation
+  if(thing_label == "") {
+  errorMsgs.push({'error' : 'Please enter a label for your item.'})
+  }
 
-//   // Check for errors
-//   if(errors.length > 0) {
-//     res.render('add', {
-//       errors,
-//       title, 
-//       technologies, 
-//       budget, 
-//       description, 
-//       contact_email
-//     });
+  if(hist_desc == "") {
+  errorMsgs.push({'error' : 'Please enter a description for your item.'})
+  }
 
-//   } else {
-//     if(!budget) {
-//       budget = 'Unknown';
-//     } else {
-//       budget = `$${budget}`
-//     }
-//     // clean up the technologies input
-//     technologies = technologies.toLowerCase().replace(/, /g, ',')
+  if(errorMsgs != ""){
+    res.render('errors', {errorMsgs})
+  } else {
 
   // Insert into table
     Catalog.create({
@@ -306,7 +284,7 @@ router.post('/add', (req, res) => {
     })
       .then(catalogs => res.redirect('/catalogs/getAll'))
       .catch(err => console.log(err));
-  
+   }
 });
 //-----------------------------------------------------------------------------------END OF ROUTE
 

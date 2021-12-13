@@ -195,7 +195,6 @@ input[type='search'] {
 
 .catalog li {
   margin-right: 0.5rem;
-  padding: 0.6rem;
 }
 
 /* Form */
@@ -238,6 +237,21 @@ label {
   font-size: 18px;
   width: 100%;
   margin-bottom: 1.2rem;
+}
+
+.redNone {
+  color: red;
+  font-weight: 400;
+}
+
+.redNoneDetail {
+  color: red;
+  font-weight: 500;
+}
+
+.greenLabel {
+  color: #14b94b;
+  font-weight:bold;
 }
 
 /* Tablets */
