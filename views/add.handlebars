@@ -9,7 +9,7 @@
       {{/each}}
       <form class="inputForm" action="/catalogs/add" method="POST">
         <div class="input-group">
-          <label for="thing_label">Label</label>
+          <label for="thing_label">Label<span class="redNone"> *required</span></label>
           <input type="text" name="thing_label" id="thing_label" class="input-box" placeholder="Red Royal Typewriter, Little Elmo Doll, etc."
             maxlength="100" value={{thing_label}}>
         </div>
@@ -24,7 +24,7 @@
             placeholder="Excellent, Fair, Poor, etc" value={{thing_condition}}>
         </div>
         <div class="input-group">
-          <label for="hist_desc">History/Description</label>
+          <label for="hist_desc">Description</label>
           <textarea name="hist_desc" id="hist_desc" class="input-box" placeholder="Describe this thing in sufficient detail here, including any important history, and your relation to it."
             rows="10">{{hist_desc}}</textarea>
         </div>

@@ -256,10 +256,6 @@ router.post('/add', (req, res) => {
   errorMsgs.push({'error' : 'Please enter a label for your item.'})
   }
 
-  if(hist_desc == "") {
-  errorMsgs.push({'error' : 'Please enter a description for your item.'})
-  }
-
   if(errorMsgs != ""){
     res.render('errors', {errorMsgs})
   } else {
