@@ -5,14 +5,47 @@
         <h3><span style="color: #14b94b;">Label: </span>{{catalogs.thing_label}}</h3>
         <h4><span style="color: #14b94b;">Category: </span>{{catalogs.category_label}}</h4>
         <ol style="list-style:none;">
+        {{#if catalogs.thing_status}}
             <li>Status: {{catalogs.thing_status}}</li>
+        {{else}}
+            <li>Status: <span style="color:red;">None</span></li>
+        {{/if}}
+
+        {{#if catalogs.thing_condition}}
             <li>Condition: {{catalogs.thing_condition}}</li>
-            <li>Stored In: {{catalogs.place_storedIn}}</li>
+        {{else}}
+            <li>Condition: <span style="color:red;">None</span></li>
+        {{/if}}
+
+        {{#if catalogs.place_storedIn}}
             <li>Location: {{catalogs.place_storedIn}}</li>
+        {{else}}
+            <li>Location: <span style="color:red;">None</span></li>
+        {{/if}}
+
+        {{#if catalogs.moneyValue}}
             <li>Value: {{catalogs.moneyValue}}</li>
+        {{else}}
+            <li>Value: <span style="color:red;">None</span></li>
+        {{/if}}
+
+        {{#if catalogs.approxSize}}
             <li>Approximate Size: {{catalogs.approxSize}}</li>
+        {{else}}
+            <li>Approximate Size: <span style="color:red;">None</span></li>
+        {{/if}}
+
+        {{#if catalogs.person_role}}
             <li>Owner: {{catalogs.person_role}}</li>
+        {{else}}
+            <li>Owner: <span style="color:red;">None</span></li>
+        {{/if}}
+
+        {{#if catalogs.person_contactInfo}}
             <li><a href="mailto:{{catalogs.person_contactInfo}}">Contact: {{catalogs.person_contactInfo}}</a></li>
+        {{else}}
+
+        {{/if}}
             <!--<li style="display:none" id="catalogId" value={{catalogs.id}}>{{catalogs.id}}</li>-->
         </ol>
         <p>{{catalogs.hist_desc}}</p>

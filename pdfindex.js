@@ -1,15 +1,21 @@
+import {Model as catalogs} from "sequelize";
+
 const path = require("path");
+const fs = require('fs-extra');
 const puppeteer = require("puppeteer");
+const https = require("https");
 
 (async function openPdf() {
-    const htmlFile = path.resolve("./views/catalogs.handlebars");
+    // const htmlFile = path.resolve("/getAll");
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto("file://" + htmlFile);
-    await page.pdf({ path: "./sample.pdf", format: "Letter" });
-    await browser.close();
-})();
+    await page.goto("/catalogs/getAll");
+    await page.click('button.pdf')
 
+    await page.pdf({ path: "mypdf.pdf", format: "Letter",printBackground: true });
+    await browser.close();
+    // return openPdf()
+})();
 
 // const puppeteer = require('puppeteer');
 // let path = require('path');
