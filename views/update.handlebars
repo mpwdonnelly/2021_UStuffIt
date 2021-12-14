@@ -9,7 +9,7 @@
       {{/each}}
       <form class="inputForm" action='/catalogs/updateRow/{{catalogs.id}}' method="GET">
         <div class="input-group">
-          <label for="thing_label">Label</label>
+          <label for="thing_label">Label<span class="redNone"> *required</span></label>
           <input type="text" name="thing_label" id="thing_label" class="input-box" placeholder="Red Royal Typewriter, Little Elmo Doll, etc."
             maxlength="100" value="{{catalogs.thing_label}}">
         </div>

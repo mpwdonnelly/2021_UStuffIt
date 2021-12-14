@@ -112,7 +112,7 @@ header.inner {
 
 /* Home Search */
 .search-wrap {
-  background-color:#999;
+  background-color: #333; 
   background-image: url("/img/attic01.jpg");
   background-size: auto 100%;
   background-position: center;
@@ -252,6 +252,10 @@ label {
 .greenLabel {
   color: #14b94b;
   font-weight:bold;
+}
+
+.aboutText {
+  color:rgba(233, 233, 233, 0.89)
 }
 
 /* Tablets */

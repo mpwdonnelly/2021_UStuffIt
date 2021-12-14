@@ -225,6 +225,17 @@ router.get('/updateRow/:id', (req, res) => {
     imgLink
   } = req.query;
 
+  let errorMsgs = [];
+
+  // Required field validation
+  if(thing_label == "") {
+    errorMsgs.push({'error' : 'Please enter a label for your item.'})
+  }
+
+  if(errorMsgs != ""){
+    res.render('errors', {errorMsgs})
+  } else {
+
   // Insert into table
   Catalog.findOne({ 
     where: {
@@ -260,7 +271,7 @@ router.get('/updateRow/:id', (req, res) => {
 
   }).then(res.redirect('/catalogs/getAll'))
   .catch(err => console.log(err));
-  })
+  }})
 //-----------------------------------------------------------------------------------END OF ROUTE
 
 
