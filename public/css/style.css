@@ -94,6 +94,24 @@ header.inner {
 
 }
 
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: gray;
+  color: #333333;
+  width: 100px;
+  margin-right:1rem;
+  text-align: center;
+  font-size:1.0rem;
+  vertical-align: center;
+  line-height: 35px;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+
 .btn:hover {
   background: var(--primary-color);
   border: 1px solid var(--primary-color);
@@ -187,6 +205,24 @@ input[type='search'] {
   box-shadow: var(--box-shadow);
 }
 
+.catalogThumbsView {
+  background: var(--bg-color);
+  border-bottom: 4px solid var(--primary-color);
+  width:250px;
+  height:350px;
+  color: #fff;
+  padding: 0.5rem;
+  padding-top:0rem;
+  margin-left:1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--box-shadow);
+  float:left;
+}
+
+.catalogThumbsView h4 + h5{
+  padding:0px;
+}
+
 .catalog ul {
   list-style: none;
   display: flex;
@@ -195,6 +231,14 @@ input[type='search'] {
 
 .catalog li {
   margin-right: 0.5rem;
+}
+
+tr th, tr td
+{
+  table-layout:fixed;
+  width:auto;
+  text-align:center;
+  overflow:hidden;
 }
 
 /* Form */

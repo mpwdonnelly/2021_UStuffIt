@@ -1,10 +1,13 @@
+
+
+
 <section id="catalogs" class="container">
 
   <div style="display:inline-flex;width:auto;height:40px;vertical-align:middle;margin-bottom:20px">
     <h1 style="width:300px;position:relative;vertical-align:top">All Things</h1>
-    <button style="width:120px;height:40px;margin-right:10px;font-size:1.0rem;background-color:#14b94b">Cards</button>
-    <button style="width:120px;height:40px;margin-right:10px;font-size:1.0rem;background-color:gray">List</button>
-    <button style="width:120px;height:40px;margin-right:10px;font-size:1.0rem;background-color:gray">Thumbs</button>
+    <a href="/catalogs/getAll" class="button" style="background-color:#14b94b">Cards</a>
+    <a href="/catalogs/getAllList" class="button">List</a>
+    <a href="/catalogs/getAllThumbs" class="button">Thumbs</a>
   </div>
 
     {{#each catalogs}}
