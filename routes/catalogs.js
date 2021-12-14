@@ -23,7 +23,9 @@ router.get('/add', (req, res) => res.render('add'));
 
 // GET ALL CATALOGS (THINGS)
 router.get('/getAll', (req, res) => 
-  Catalog.findAll()
+  Catalog.findAll({
+    order: [['thing_label']]
+  })
     .then(catalogs => res.render('catalogs', { catalogs }))
     .catch(err => console.log(err)));
 //-----------------------------------------------------------------------------------END OF ROUTE
@@ -79,7 +81,9 @@ router.get('/search', (req, res) => {
         {imgLink: { [Op.iLike]: `%${term}%`}},
         {moneyValue: { [Op.iLike]: `%${term}%`}},
         {approxSize: { [Op.iLike]: `%${term}%`}}
-      ]}})
+      ]},
+      order: [['thing_label']]
+    })
   .then(catalogs => res.render('catalogs', { catalogs }))
   .catch(err => console.log("Search string error: " + err))
 });
@@ -159,7 +163,8 @@ router.get('/smartSearch', (req, res) => {
       category_label: {
         [Op.iLike]: { [Op.any]: [`%${categoryArray[0]}%`, `%${categoryArray[1]}%`, `%${categoryArray[2]}%`, `%${categoryArray[3]}%`, `%${categoryArray[4]}%`] }
       },
-    }
+    },
+    order: [['thing_label']]
   })
   .then(catalogs => res.render('catalogs', { catalogs }))
   .catch(err => console.log("Search string error: " + err))
@@ -226,7 +231,7 @@ router.get('/updateRow/:id', (req, res) => {
   } = req.query;
 
   let errorMsgs = [];
-  
+
   // Required field validation
   if(thing_label == "") {
     errorMsgs.push({'error' : 'Please enter a label for your item.'})
