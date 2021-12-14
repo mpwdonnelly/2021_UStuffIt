@@ -9,23 +9,24 @@
 
   {{#each catalogs}}
     <div class="catalogThumbsView">
-      <h4><span style="color: #14b94b;">Label: </span>{{thing_label}}</h3>
-      <h5><span style="color: #14b94b;">Category: </span>{{category_label}}</h4>
-      {{#if imgLink}}
-      <a href={{imgLink}}><img src={{imgLink}} style="max-height: 230px; max-width: 230px;"></li></a>
-      {{/if}}
-        <a href="/catalogs/getOne/{{id}}" class="btn btn-reverse">Details</a>
-        <a href="/catalogs/update/{{id}}" class="btn btn-reverse">Edit</a>
-        <a href="/catalogs/delete/{{id}}" class="btn btn-reverse" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+      <ul>
+        <h4><span style="color: #14b94b;">Label: </span>{{thing_label}}</h3>
+        <h5><span style="color: #14b94b;">Category: </span>{{category_label}}</h4>
+        {{#if imgLink}}
+        <a href={{imgLink}}><img src={{imgLink}} style="max-height: 230px; max-width: 230px;"></li></a>
+        {{/if}}
       </ul>
-
       <br>
-      <!--<button class="btn btn-reverse" style="margin-top: 1rem;" id="{{id}}">Show Details</button>-->
+      <a href="/catalogs/getOne/{{id}}" class="btn btn-reverse">Details</a>
+      <a href="/catalogs/update/{{id}}" class="btn btn-reverse">Edit</a>
+      <a href="/catalogs/delete/{{id}}" class="btn btn-reverse" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
     </div>
   {{else}}
-      <p>No Things in catalog.</p> 
+          <div class="catalog">
+          <p>No Things in catalog.</p><br>
+          <ul>
+            <li><a href="javascript:history.back()" class="btn btn-reverse">Back</a></li>
+          </ul>
+        </div>
   {{/each}}
   </section>
-
-
-<!-- INVESTIGATE HTML <details> TAB FOR CREATING TRUNCATED VS FULL LISTS - OR SYTLE VIA CSS -->

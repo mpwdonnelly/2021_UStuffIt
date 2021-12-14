@@ -38,7 +38,12 @@
             {{/if}}
           </tr>
   {{else}}
-      <p>No Things in catalog.</p> 
+          <div class="catalog">
+          <p>No Things in catalog.</p><br>
+          <ul>
+            <li><a href="javascript:history.back()" class="btn btn-reverse">Back</a></li>
+          </ul>
+        </div> 
   {{/each}}
         </table>
   </section>
