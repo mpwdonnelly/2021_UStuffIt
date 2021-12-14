@@ -92,28 +92,72 @@ router.get('/smartSearch', (req, res) => {
   // now handle the inputs once user presses SEARCH
   let { label, status, condition, person, contact, location, category } = req.query;
 
+  // arrays for splitting search terms into single values
+  let labelArray = label.split(",");
+  let statusArray = status.split(",")
+  let conditionArray = condition.split(",")
+  let personArray = person.split(",")
+  let contactArray = contact.split(",")
+  let locationArray = location.split(",")
+  let categoryArray = category.split(",")
+
+  //label trim
+  for (i=0; i < labelArray.length; i++) {
+    labelArray[i] = labelArray[i].trim();
+  }
+
+  //status trim
+  for (i=0; i < statusArray.length; i++) {
+    statusArray[i] = statusArray[i].trim();
+  }
+
+  //condition trim
+  for (i=0; i < conditionArray.length; i++) {
+    conditionArray[i] = conditionArray[i].trim();
+  }
+
+  //person trim
+  for (i=0; i < personArray.length; i++) {
+    personArray[i] = personArray[i].trim();
+  }
+
+  //contact trim
+  for (i=0; i < contactArray.length; i++) {
+    contactArray[i] = contactArray[i].trim();
+  }
+
+  //location trim
+  for (i=0; i < locationArray.length; i++) {
+    locationArray[i] = locationArray[i].trim();
+  }
+
+  //category trim
+  for (i=0; i < categoryArray.length; i++) {
+    categoryArray[i] = categoryArray[i].trim();
+  }
+
   Catalog.findAll({ 
     where: {
       thing_label: {
-        [Op.iLike]: `%${label}%`
+        [Op.iLike]: { [Op.any]: [`%${labelArray[0]}%`, `%${labelArray[1]}%`, `%${labelArray[2]}%`, `%${labelArray[3]}%`, `%${labelArray[4]}%`] }
       },
       thing_status: {
-        [Op.iLike]: `%${status}%`
+        [Op.iLike]: { [Op.any]: [`%${statusArray[0]}%`, `%${statusArray[1]}%`, `%${statusArray[2]}%`, `%${statusArray[3]}%`, `%${statusArray[4]}%`] }
       },
       thing_condition: {
-        [Op.iLike]: `%${condition}%`
+        [Op.iLike]: { [Op.any]: [`%${conditionArray[0]}%`, `%${conditionArray[1]}%`, `%${conditionArray[2]}%`, `%${conditionArray[3]}%`, `%${conditionArray[4]}%`] }
       },
       person_role: {
-        [Op.iLike]: `%${person}%`
+        [Op.iLike]: { [Op.any]: [`%${personArray[0]}%`, `%${personArray[1]}%`, `%${personArray[2]}%`, `%${personArray[3]}%`, `%${personArray[4]}%`] }
       },
       person_contactInfo: {
-        [Op.iLike]: `%${contact}%`
+        [Op.iLike]: { [Op.any]: [`%${contactArray[0]}%`, `%${contactArray[1]}%`, `%${contactArray[2]}%`, `%${contactArray[3]}%`, `%${contactArray[4]}%`] }
       },
       place_storedIn: {
-        [Op.iLike]: `%${location}%`
+        [Op.iLike]: { [Op.any]: [`%${locationArray[0]}%`, `%${locationArray[1]}%`, `%${locationArray[2]}%`, `%${locationArray[3]}%`, `%${locationArray[4]}%`] }
       },
       category_label: {
-        [Op.iLike]: `%${category}%`
+        [Op.iLike]: { [Op.any]: [`%${categoryArray[0]}%`, `%${categoryArray[1]}%`, `%${categoryArray[2]}%`, `%${categoryArray[3]}%`, `%${categoryArray[4]}%`] }
       },
     }
   })
@@ -181,6 +225,17 @@ router.get('/updateRow/:id', (req, res) => {
     imgLink
   } = req.query;
 
+  let errorMsgs = [];
+  
+  // Required field validation
+  if(thing_label == "") {
+    errorMsgs.push({'error' : 'Please enter a label for your item.'})
+  }
+
+  if(errorMsgs != ""){
+    res.render('errors', {errorMsgs})
+  } else {
+
   // Insert into table
   Catalog.findOne({ 
     where: {
@@ -216,7 +271,7 @@ router.get('/updateRow/:id', (req, res) => {
 
   }).then(res.redirect('/catalogs/getAll'))
   .catch(err => console.log(err));
-  })
+  }})
 //-----------------------------------------------------------------------------------END OF ROUTE
 
 
@@ -267,11 +322,7 @@ router.post('/add', (req, res) => {
 
   // Required field validation
   if(thing_label == "") {
-  errorMsgs.push({'error' : 'Please enter a label for your item.'})
-  }
-
-  if(hist_desc == "") {
-  errorMsgs.push({'error' : 'Please enter a description for your item.'})
+    errorMsgs.push({'error' : 'Please enter a label for your item.'})
   }
 
   if(errorMsgs != ""){
