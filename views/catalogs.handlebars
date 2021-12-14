@@ -53,13 +53,13 @@
             {{#if hist_desc}}
               <p><span class="greenLabel">Description: </span>{{hist_desc}}</p>
             {{else}}
-              <p><span class="redNone">Description: </span> <span class="redNone">No description entered.</span></p>
+              <p><span class="greenLabel">Description: </span> <span class="redNone">No description entered.</span></p>
             {{/if}}
 
             {{#if imgLink}}
               <a href={{imgLink}}><img src={{imgLink}} style="max-height: 150px; max-width: 150px;"></a>
+              <br>
             {{/if}}
-            <br>
             <br>
             <ul>
               {{#if imgLink}}
@@ -73,6 +73,11 @@
 
         </div>
     {{else}}
-        <p>No Things in catalog.</p>
+        <div class="catalog">
+          <p>No Things in catalog.</p><br>
+          <ul>
+            <li><a href="/catalogs/getAll" class="btn btn-reverse">Back</a></li>
+          </ul>
+        </div>
     {{/each}}
 </section>
