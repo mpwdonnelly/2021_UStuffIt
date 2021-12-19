@@ -1,14 +1,13 @@
 <section id="catalogs" class="container">
 
   <div id="viewHead" >
-    <h1>All Things</h1>
-
-
-    <a href="/catalogs/getAll" class="button" style="background-color:#14b94b">Cards</a>
+    <h1 style="width:150px;position:relative;vertical-align:top">All Things</h1>
+    <a href="/catalogs/getAll" class="button" style="background-color:#14b94b;">Cards</a>
     <a href="/catalogs/getAllList" class="button">List</a>
     <a href="/catalogs/getAllThumbs" class="button">Thumbs</a>
   </div>
-<hr style="float: left; width: 150%;">
+
+{{!-- <hr style="float: left; width: 150%;"> --}}
     {{#each catalogs}}
         <div class="catalog">
             {{#if thing_label.length}}
