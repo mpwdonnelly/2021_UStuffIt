@@ -1,6 +1,6 @@
 <section id="catalogs" class="container">
 
-  <div id="viewHead" >
+  <div id="viewHead">
     <h1 style="width:150px;position:relative;vertical-align:top">All Things</h1>
   </div>
   <div id="viewHead">
@@ -9,46 +9,46 @@
     <a href="/catalogs/getAllThumbs" class="button">Thumbs</a>
   </div>
   <br><br><br><br><br><br>
-  {{!-- <hr style="float: left; width: 98%;"> --}}
-  
-      <table style="table-layout:fixed;width:600px;overflow:hidden">
-          <tr>
-            <th>Label</th>
-            <th>Category</th>
-            <th>Status</th>
-            <th>Location</th>
-          </tr>
-  {{#each catalogs}}
+  {{!--
+  <hr style="float: left; width: 98%;"> --}}
+  <div style="width:fit-content; overflow-x:scroll;">
+  <table>
+    <tr>
+      <th>Label</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th>Location</th>
+    </tr>
+    {{#each catalogs}}
+    <tr>
+      <td>{{thing_label}}</td>
 
-          <tr>          
-            <td>{{thing_label}}</td>
+      {{#if category_label}}
+      <td>{{category_label}}</td>
+      {{else}}
+      <td><span style="color:red;">None</span></td>
+      {{/if}}
 
-            {{#if category_label}}
-            <td>{{category_label}}</td>
-            {{else}}
-            <td><span style="color:red;">None</span></td>
-            {{/if}}
+      {{#if thing_status}}
+      <td>{{thing_status}}</td>
+      {{else}}
+      <td><span style="color:red;">None</span></td>
+      {{/if}}
 
-            {{#if thing_status}}
-            <td>{{thing_status}}</td>
-            {{else}}
-            <td><span style="color:red;">None</span></td>
-            {{/if}}
-
-            {{#if place_storedIn}}
-            <td>{{place_storedIn}}</td>
-            {{else}}
-            <td><span style="color:red;">None</span></td>
-            {{/if}}
-          </tr>
-  {{else}}
-          <div class="catalog">
-          <p>No Things in catalog.</p><br>
-          <ul>
-            <li><a href="javascript:history.back()" class="btn btn-reverse">Back</a></li>
-          </ul>
-        </div> 
-  {{/each}}
-        </table>
-        
+      {{#if place_storedIn}}
+      <td>{{place_storedIn}}</td>
+      {{else}}
+      <td><span style="color:red;">None</span></td>
+      {{/if}}
+    </tr>
+    {{else}}
+    <div class="catalog">
+      <p>No Things in catalog.</p><br>
+      <ul>
+        <li><a href="javascript:history.back()" class="btn btn-reverse">Back</a></li>
+      </ul>
+    </div>
+    {{/each}}
+  </table>
+  </div>
 </section>
