@@ -13,10 +13,22 @@
   {{#each catalogs}}
     <div class="catalogThumbsView">
       <ul>
-        <h4><span style="color: #14b94b;">Label: </span>{{thing_label}}</h3>
-        <h5><span style="color: #14b94b;">Category: </span>{{category_label}}</h4>
+        {{#if thing_label}}
+          <h4><span style="color: #14b94b;">Label: </span>{{thing_label}}</h3>
+        {{else}}
+          <h4><span style="color: #14b94b;">Label: </span class="redNoneGeneric"><span>None</span></h3>
+        {{/if}}
+
+        {{#if category_label}}
+          <h5><span style="color: #14b94b;">Category: </span>{{category_label}}</h4>
+        {{else}}
+          <h5><span style="color: #14b94b;">Category: </span><span class="redNoneGeneric">None</span></h4>
+        {{/if}}
+
         {{#if imgLink}}
             <a href={{imgLink}}><img src={{imgLink}} style="height: 160px; width: 175px;"></a>
+        {{else}}
+            <img src="../public/img/notFound.png" style="height: 160px; width: 175px;" class="thumbBlank">
         {{/if}}
       </ul>
       <br>

@@ -264,6 +264,10 @@ tr th, tr td
   overflow:hidden;
 }
 
+.thumbBlank {
+  content: url("/img/notFound.png");
+}
+
 /* Form */
 .form-wrap {
   margin: auto;
@@ -309,6 +313,10 @@ label {
 .redNone {
   color: red;
   font-weight: 400;
+}
+
+.redNoneGeneric {
+  color: red;
 }
 
 .redNoneDetail {
