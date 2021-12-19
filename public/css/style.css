@@ -219,7 +219,6 @@ input[type='search'] {
 
 /* Catalogs */
 .catalog {
-  float: left;
   background: var(--bg-color);
   border-bottom: 4px solid var(--primary-color);
   color: #fff;
