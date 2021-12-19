@@ -23,7 +23,7 @@ app.engine('handlebars', hbs.engine({
   handlebars: allowInsecurePrototypeAccess(Handlebars),
   helpers:{
     short: function(str) {
-      if(str.length > 23) {
+      if (str.length > 23) {
       str = str.substring(0,20) + "..."; 
       }
       return str;
