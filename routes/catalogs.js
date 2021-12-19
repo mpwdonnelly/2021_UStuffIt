@@ -230,13 +230,6 @@ router.get('/updateRow/:id', (req, res) => {
     imgLink
   } = req.query;
 
-  // Used to handle dropbox image uploading to allow for embedding
-  if (imgLink != ""){
-    if (search(imgLink, "dropbox") != -1) {
-      imgLink = imgLink.replace("?dl=0","?raw=1");
-    }
-  }
-
   let errorMsgs = [];
 
   // Required field validation
@@ -329,6 +322,14 @@ router.post('/add', (req, res) => {
     moneyValue,
     createdAt,
     updatedAt } = req.body;
+
+  // Used to handle dropbox image uploading to allow for embedding
+  if (imgLink != ""){
+    if (imgLink.includes("dropbox")) {
+      imgLink = imgLink.replace("?dl=0","?raw=1");
+    }
+  }
+
 
   let errorMsgs = [];
 
