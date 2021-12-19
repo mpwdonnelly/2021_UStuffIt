@@ -2,10 +2,13 @@
 
   <div id="viewHead" >
     <h1 style="width:150px;position:relative;vertical-align:top">All Things</h1>
-    <a href="/catalogs/getAll" class="button" >Cards</a>
-    <a href="/catalogs/getAllList" class="button">List</a>
-    <a href="/catalogs/getAllThumbs" class="button" style="background-color:#14b94b">Thumbs</a>
   </div>
+    <div id="viewHead">
+    <a href="/catalogs/getAll" class="button">Cards</a>
+    <a href="/catalogs/getAllList" class="button">List</a>
+    <a href="/catalogs/getAllThumbs" class="button" style="background-color:#14b94b;">Thumbs</a>
+  </div>
+  <br><br><br><br><br><br>
     {{!-- <hr style="float: left; width: 98%;"> --}}
   {{#each catalogs}}
     <div class="catalogThumbsView">
@@ -13,7 +16,7 @@
         <h4><span style="color: #14b94b;">Label: </span>{{thing_label}}</h3>
         <h5><span style="color: #14b94b;">Category: </span>{{category_label}}</h4>
         {{#if imgLink}}
-            <a href={{imgLink}}><img src={{imgLink}} style="max-height: 160px; max-width: 160px;"></a>
+            <a href={{imgLink}}><img src={{imgLink}} style="height: 160px; width: 175px;"></a>
         {{/if}}
       </ul>
       <br>
