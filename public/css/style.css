@@ -231,7 +231,7 @@ input[type='search'] {
   background: var(--bg-color);
   border-bottom: 4px solid var(--primary-color);
   width:250px;
-  height:350px;
+  height:400px;
   color: #fff;
   padding: 0.5rem;
   padding-top:0rem;
@@ -239,6 +239,13 @@ input[type='search'] {
   margin-bottom: 1rem;
   box-shadow: var(--box-shadow);
   float:left;
+  position: relative;
+}
+
+.thumbButtons {
+  position: absolute;
+  bottom: 1.125em;
+  
 }
 
 .catalogThumbsView h4 + h5{

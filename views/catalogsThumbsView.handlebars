@@ -20,7 +20,7 @@
         {{/if}}
 
         {{#if category_label}}
-          <h4><span style="color: #14b94b;">Category: </span>{{category_label}}</h4>
+          <h4><span style="color: #14b94b;">Category: </span>{{short category_label}}</h4>
         {{else}}
           <h4><span style="color: #14b94b;">Category: </span><span class="redNoneGeneric">None</span></h4>
         {{/if}}
@@ -32,9 +32,11 @@
         {{/if}}
       </ul>
       <br>
+      <div class = "thumbButtons">
         <a href="/catalogs/getOne/{{id}}" class="btn btn-reverse">Details</a>
         <a href="/catalogs/update/{{id}}" class="btn btn-reverse">Edit</a>
         <a href="/catalogs/delete/{{id}}" class="btn btn-reverse" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+      </div>
     </div>
   {{else}}
           <div class="catalog">
