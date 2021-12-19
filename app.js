@@ -20,7 +20,15 @@ db.authenticate()
 // app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.engine('handlebars', hbs.engine({
   defaultLayout: 'main',
-  handlebars: allowInsecurePrototypeAccess(Handlebars)
+  handlebars: allowInsecurePrototypeAccess(Handlebars),
+  helpers:{
+    short: function(str) {
+      if(str.length > 23) {
+      str = str.substring(0,20) + "..."; 
+      }
+      return str;
+    }
+  }
 }));
 app.set('view engine', 'handlebars');
 
