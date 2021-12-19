@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 //////////////////////////////////////////////////////////////////////////
 // ******** DISABLE LINES 8-19 IF DEPLOYING TO HEROKU ****************
 //////////////////////////////////////////////////////////////////////////
-module.exports = new Sequelize('catalogdb', 'postgres', 'D92t84ow!', {
+module.exports = new Sequelize('catalogdb', 'postgres', 'mysql', {
   host: 'localhost',
   dialect: 'postgres',
   //quoteIdentifiers: false,
