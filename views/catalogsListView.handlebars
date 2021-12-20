@@ -11,14 +11,16 @@
   <br><br><br><br><br><br>
   {{!--
   <hr style="float: left; width: 98%;"> --}}
-  <div style="width:fit-content;">
-  <table table style="width:80%; overflow: scroll;">
+  <table>
+    <thead>
     <tr>
       <th>Label</th>
       <th>Category</th>
       <th>Status</th>
       <th>Location</th>
     </tr>
+    </thead>
+    <tbody>
     {{#each catalogs}}
     <tr>
       <td>{{thing_label}}</td>
@@ -41,6 +43,7 @@
       <td><span style="color:red;">None</span></td>
       {{/if}}
     </tr>
+    </tbody>
     {{else}}
     <div class="catalog">
       <p>No Things in catalog.</p><br>
@@ -50,5 +53,4 @@
     </div>
     {{/each}}
   </table>
-  </div>
 </section>

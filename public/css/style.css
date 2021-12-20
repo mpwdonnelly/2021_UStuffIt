@@ -116,7 +116,7 @@ header.inner {
 .search-wrap {
   background-color: #999; 
   background-image: url("/img/attic01.jpg");
-  background-size: auto 100%;
+  background-size: 100% auto;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
@@ -340,6 +340,26 @@ label {
   color:rgba(233, 233, 233, 0.89)
 }
 
+/* Table Styling */
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+
 /* Tablets */
 @media (max-width: 800px) {
   .container {
@@ -392,6 +412,53 @@ label {
   .form-wrap.login-form {
     width: 80%;
   }
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Label"; }
+	td:nth-of-type(2):before { content: "Category"; }
+	td:nth-of-type(3):before { content: "Status"; }
+  td:nth-of-type(4):before { content: "Location"; }
+
 }
 
 /* Smartphones */
