@@ -324,6 +324,7 @@ router.post('/add', (req, res) => {
     updatedAt } = req.body;
 
   // Used to handle dropbox image uploading to allow for embedding
+  // note was added to form to alert user
   if (imgLink != ""){
     if (imgLink.includes("dropbox")) {
       imgLink = imgLink.replace("?dl=0","?raw=1");
