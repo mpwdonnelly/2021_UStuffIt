@@ -58,8 +58,9 @@
             {{/if}}
 
             {{#if imgLink}}
-              <a href={{imgLink}}><img src={{imgLink}} style="max-height: 150px; max-width: 150px;"></a>
-              <br>
+            <a href={{imgLink}}><img src={{imgLink}} style="height: 150px; width: 150px;"></a>
+            {{else}}
+            <img src="../public/img/notFound.png" style="height: 150px; width: 150px;" class="thumbBlank">
             {{/if}}
             <br>
             <ul>
